@@ -5,27 +5,6 @@
     <title>PMS项目管理系统</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <link rel="stylesheet" type="text/css" href="css/selectbox.css"/>
-    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="js/jquery.selectbox-0.5.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#Items01').selectbox();
-            $('#Items02').selectbox();
-            $('#Items03').selectbox();
-            $('#Items04').selectbox();
-            $('#Items05').selectbox();
-            $('#Items06').selectbox();
-        });
-        function windowHeight() {
-            var de = document.documentElement;
-            return self.innerHeight || (de && de.clientHeight) || document.body.clientHeight;
-        }
-        window.onload = window.onresize = function () {
-            var wh = windowHeight();
-            document.getElementById("contents").style.height = (wh - 66 - 25) + "px";
-            document.getElementById("data").style.height = (wh - 66 - 25 - 176) + "px";
-        }
-    </script>
 </head>
 
 <body>
@@ -340,5 +319,28 @@
 <div class="footer">
     <div class="copyright"><img src="images/img_copyright.gif"/></div>
 </div>
+
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="js/jquery.selectbox-0.5.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Items01').selectbox();
+        $('#Items02').selectbox();
+        $('#Items03').selectbox();
+        $('#Items04').selectbox();
+        $('#Items05').selectbox();
+        $('#Items06').selectbox();
+        adjust();
+    });
+
+    $(window).resize(function() {
+        adjust();
+    });
+    function adjust() {
+        var wh = $(document).height();
+        $('#contents').height(wh - 66 - 25);
+        $('#data').height(wh - 66 - 25 - 176);
+    }
+</script>
 </body>
 </html>

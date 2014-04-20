@@ -20,13 +20,13 @@ body { font-size:12px; min-width:1280px; }
 #contents .commonbtn .right { float:left; position:absolute; right:0px; top:0px; }
 #contents .datahead { margin-top:54px;}
 #contents #data { margin-top:54px;}
-#contents #data .tablemain { overflow-x:scroll; min-width:1200px; width:100%;  }
-#contents #data table { border-top:1px solid #acacae; border-bottom:1px solid #acacae;}
-#contents #data table thead th { padding-top:6px; padding-bottom:6px; background:#e2e2e2;border-left:1px solid #d7d7d7; font-weight:normal; }
+#contents #data .tablemain { overflow-x: auto;  min-width:1200px; width: 100%;}
+#contents #data table { overflow-x: scroll; border-top:1px solid #acacae; border-bottom:1px solid #acacae; width: 100%; table-layout: fixed}
+#contents #data table thead th { padding-top:6px; padding-bottom:6px; background:#e2e2e2;border-left:1px solid #d7d7d7; font-weight:normal;word-break: keep-all;white-space:nowrap; }
 #contents #data table thead tr th:first-child { border-left:none; }
 #contents #data table tbody tr { background:#fff;}
 #contents #data table tbody th { padding-top:6px; padding-bottom:6px; }
-#contents #data table tbody td { padding-top:6px; padding-bottom:6px; border-top:1px solid #d7d7d7;border-left:1px solid #d7d7d7; text-align:center;}
+#contents #data table tbody td { padding-top:6px; padding-bottom:6px; border-top:1px solid #d7d7d7;border-left:1px solid #d7d7d7; text-align:center;word-break: keep-all;white-space:nowrap;}
 #contents #data table tbody td:first-child { border-left:none; }
 #contents #data table tbody tr:first-child td { border-top:none; }
 #contents #data .green { color:#499989; }
