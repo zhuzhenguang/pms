@@ -17,7 +17,7 @@ div.selectbox-wrapper ul {
   list-style-type:none;
   margin:0px;
   padding:0px;
-  border:1px solid #acacac;
+  border:1px solid #499989;
   background:fff;
   
   
@@ -30,7 +30,7 @@ div.selectbox-wrapper ul li.selected {
 
 /* Hover state for dropdown list */
 div.selectbox-wrapper ul li.current { 
-  background-color: #e45e45;
+  background-color: #499989;
   color:#fff; 
 }
 
@@ -65,4 +65,8 @@ input.selectbox {  border-top:1px solid #b3b3b3;
   border-left:1px solid #b3b3b3;
   border-bottom:1px solid #e8e8e8;
   border-right:1px solid #e8e8e8; width:95%; background:#fff url(../images/bg_select.gif) 95% center no-repeat; height:18px; margin-top:5px;   }
+input:focus.selectbox {  border:1px solid #499989;
+
+ 
+  width:95%; background:#fff url(../images/bg_select_on.gif) 95% center no-repeat; height:18px; margin-top:5px;   }
 

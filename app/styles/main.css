@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-body { font-size:12px; min-width:1280px; }
+body { font-size:12px; min-width:1280px; background: #ffffff;}
 .header { height:66px; background:url(../images/bg_01.gif) left top repeat-x; position:relative; }
 .header h1 { position:absolute; top:19px; left:25px;  }
 .header .nav a { font-size:18px; font-weight:bold; color:#898989; position:absolute; left:271px; top:28px; }
@@ -9,6 +9,7 @@ body { font-size:12px; min-width:1280px; }
 #contents { border-top:1px solid #abacae; background:#f3f4f4; padding-left:25px; padding-right:25px; position:relative;    }
 #contents .slideup { position:absolute; top:-1px; left:49%; }
 #contents .searchbox { border:3px solid #bed194;  background:#fff; font-size:12px; margin-top:32px; padding-top:5px; padding-bottom:5px;  }
+#contents .searchbox:hover { border:3px solid #0b3757;    }
 #contents .searchbox table th { color:#363636; font-weight:normal;   }
 #contents .searchbox table td { padding-top:5px;}
 #contents .searchbtn { width: 76px; height:31px; margin:10px auto 20px auto; }
@@ -20,16 +21,19 @@ body { font-size:12px; min-width:1280px; }
 #contents .commonbtn .right { float:left; position:absolute; right:0px; top:0px; }
 #contents .datahead { margin-top:54px;}
 #contents #data { margin-top:54px;}
-#contents #data .tablemain { overflow-x: auto;  min-width:1200px; width: 100%;}
-#contents #data table { overflow-x: scroll; border-top:1px solid #acacae; border-bottom:1px solid #acacae; width: 100%; table-layout: fixed}
-#contents #data table thead th { padding-top:6px; padding-bottom:6px; background:#e2e2e2;border-left:1px solid #d7d7d7; font-weight:normal;word-break: keep-all;white-space:nowrap; }
+#contents #data .tablemain { overflow-x:auto; min-width:1200px; width:100%;  }
+#contents #data table { border-top:1px solid #acacae; border-bottom:1px solid #acacae;/*width: 100%;table-layout: fixed;*/}
+#contents #data table thead th { padding-top:6px; padding-bottom:6px; background:#e2e2e2;border-left:1px solid #d7d7d7; font-weight:normal; }
 #contents #data table thead tr th:first-child { border-left:none; }
 #contents #data table tbody tr { background:#fff;}
+#contents #data table tbody tr:hover td{ background:#e1ebcd;}
 #contents #data table tbody th { padding-top:6px; padding-bottom:6px; }
-#contents #data table tbody td { padding-top:6px; padding-bottom:6px; border-top:1px solid #d7d7d7;border-left:1px solid #d7d7d7; text-align:center;word-break: keep-all;white-space:nowrap;}
+#contents #data table tbody td { padding-top:6px; padding-bottom:6px; border-top:1px solid #d7d7d7;border-left:1px solid #d7d7d7; text-align:center;}
 #contents #data table tbody td:first-child { border-left:none; }
 #contents #data table tbody tr:first-child td { border-top:none; }
 #contents #data .green { color:#499989; }
+#contents #data .checkbox { display:inline-block; width:16px; height:16px; background:url(../images/btn_checkbox.gif) left top no-repeat; }
+#contents #data .checkbox_on {  background:url(../images/btn_checkbox_on.gif) left top no-repeat; }
 #contents .page { margin-top:12px; position:relative; }
 #contents .page .nm { position:absolute; left:0px; top:0px;  }
 #contents .page .nm dt { color:#7d7d7d; float:left; }
@@ -38,6 +42,8 @@ body { font-size:12px; min-width:1280px; }
 #contents .page .page_nm li { float:left; margin-right:15px;  }
 #contents .page .page_nm li img { margin-top:3px;  }
 #contents .page .page_nm li a { color:#898989; }
+#contents .page .page_nm li a:hover { color:#0b3757; }
+#contents .page .page_nm li a:active { color:#e35f44; }
 #contents .page .page_nm li .on { color:#bed194; font-size:14px; line-height:100%;}
 
 

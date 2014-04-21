@@ -20,8 +20,8 @@ pmsController.controller('PopCtrl', ['$scope', function($scope) {
     angular.element('.pop_new').dialog({
         //dialogClass: "no-close",
         modal: true,
-        width: 660,
-        height: 450,
+        width: 670,
+        /*height: 480,*/
         autoOpen: false,
         show: {
             effect: "blind",

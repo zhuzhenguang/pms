@@ -1,7 +1,22 @@
 <div class="header">
-    <h1><a href="#none"><img src="images/title_01.gif"/></a></h1>
-    <span class="nav"><a href="#none">项目管理</a></span>
-    <span class="out"><a href="#none"><img src="images/btn_out.gif"/></a></span>
+    <h1><a href="#none"><img src="images/title_01.gif" /></a></h1>
+    <span class="nav">
+        <a href="#none">
+            <img src="images/btn_nav.gif" alt="项目管理"
+                 onmouseover="this.src='images/btn_nav_hover.gif'"
+                 onmousedown="this.src='images/btn_nav_click.gif'"
+                 onmouseout="this.src='images/btn_nav.gif'" />
+        </a>
+    </span>
+
+    <span class="out">
+        <a href="#none">
+            <img src="images/btn_out.gif" alt="退出"
+                 onmouseover="this.src='images/btn_out_hover.gif'"
+                 onmousedown="this.src='images/btn_out_click.gif'"
+                 onmouseout="this.src='images/btn_out.gif'" />
+        </a>
+    </span>
 </div>
 
 <div id="contents">
@@ -85,28 +100,58 @@
             </tbody>
         </table>
     </div>
-    <div class="searchbtn"><a href="#none"><img src="images/btn_search.gif" alt="搜索"/></a></div>
+
+    <div class="searchbtn"><a href="#none">
+        <img src="images/btn_search.gif" alt="退出"
+             onmouseover="this.src='images/btn_search_hover.gif'"
+             onmousedown="this.src='images/btn_search_click.gif'"
+             onmouseout="this.src='images/btn_search.gif'" /></a></div>
+
     <div class="commonbtn">
         <ul class="left">
-            <li><a href="#none" ng-click="pop()"><img src="images/btn_plus.gif"/></a>
-                <div class="info"><img src="images/img_plus.png"/></div>
+            <li><a href="#none" ng-click="pop()">
+                <img src="images/btn_plus.gif" alt="新增"
+                     onmouseover="this.src='images/btn_plus_hover.gif'"
+                     onmousedown="this.src='images/btn_plus_click.gif'"
+                     onmouseout="this.src='images/btn_plus.gif'" /></a>
+
+                <div class="info"><img src="images/img_plus.png" /></div>
             </li>
-            <li><a href="#none"><img src="images/btn_minus.gif"/></a>
-                <div class="info"><img src="images/img_minus.png"/></div>
+            <li><a href="#none">
+                <img src="images/btn_minus.gif" alt="删除"
+                     onmouseover="this.src='images/btn_minus_hover.gif'"
+                     onmousedown="this.src='images/btn_minus_click.gif'"
+                     onmouseout="this.src='images/btn_minus.gif'" /></a>
+
+                <div class="info"><img src="images/img_minus.png" /></div>
             </li>
         </ul>
         <ul class="right">
-            <li><a href="#none"><img src="images/btn_save.gif"/></a>
-                <div class="info"><img src="images/img_save.png"/></div>
+            <li><a href="#none">
+                <img src="images/btn_save.gif" alt="保存"
+                     onmouseover="this.src='images/btn_save_hover.gif'"
+                     onmousedown="this.src='images/btn_save_click.gif'"
+                     onmouseout="this.src='images/btn_save.gif'" /></a>
+
+                <div class="info"><img src="images/img_save.png" /></div>
             </li>
-            <li><a href="#none"><img src="images/btn_refresh.gif"/></a>
-                <div class="info"><img src="images/img_refresh.png"/></div>
+            <li><a href="#none">
+                <img src="images/btn_refresh.gif" alt="刷新"
+                     onmouseover="this.src='images/btn_refresh_hover.gif'"
+                     onmousedown="this.src='images/btn_refresh_click.gif'"
+                     onmouseout="this.src='images/btn_refresh.gif'" /></a>
+                <div class="info"><img src="images/img_refresh.png" /></div>
             </li>
-            <li><a href="#none"><img src="images/btn_excel.gif"/></a>
-                <div class="info"><img src="images/img_excel.png"/></div>
+            <li><a href="#none">
+                <img src="images/btn_excel.gif" alt="excel表格"
+                     onmouseover="this.src='images/btn_excel_hover.gif'"
+                     onmousedown="this.src='images/btn_excel_click.gif'"
+                     onmouseout="this.src='images/btn_excel.gif'" /></a>
+                <div class="info"><img src="images/img_excel.png" /></div>
             </li>
         </ul>
     </div>
+
     <div id="data">
         <div class="tablemain">
             <table cellpadding="0" cellspacing="0" border="0" ng-controller="ProjectCtrl">
@@ -142,7 +187,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="project in projects">
-                    <td><input type="checkbox"/></td>
+                    <td><a href="#none" class="checkbox"></a></td>
                     <td>{{$index + 1}}</td>
                     <td class="green"><input value="{{project.corporation}}"></td>
                     <td class="green">{{project.saleRepresentativeName}}</td>
@@ -169,19 +214,19 @@
                 <dd>98</dd>
             </dl>
             <ul class="page_nm">
-                <li><a href="#none"><img src="images/btn_leftall.gif"/></a></li>
-                <li><a href="#none"><img src="images/btn_left.gif"/></a></li>
-                <li><a href="#none" class="on">1</a></li>
+                <li><a href="#none"><img src="images/btn_leftall.gif" /></a></li>
+                <li><a href="#none"><img src="images/btn_left.gif" /></a></li>
+                <li><a href="#none">1</a></li>
                 <li><a href="#none">2</a></li>
                 <li><a href="#none">3</a></li>
-                <li><a href="#none">4</a></li>
+                <li><a href="#none" class="on">4</a></li>
                 <li><a href="#none">5</a></li>
                 <li><a href="#none">6</a></li>
                 <li><a href="#none">7</a></li>
                 <li><a href="#none">8</a></li>
                 <li><a href="#none">9</a></li>
-                <li><a href="#none"><img src="images/btn_right.gif"/></a></li>
-                <li><a href="#none"><img src="images/btn_rightall.gif"/></a></li>
+                <li><a href="#none"><img src="images/btn_right.gif" /></a></li>
+                <li><a href="#none"><img src="images/btn_rightall.gif" /></a></li>
             </ul>
         </div>
     </div>
