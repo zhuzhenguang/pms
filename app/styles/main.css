@@ -52,3 +52,9 @@ body { font-size:12px; min-width:1280px; background: #ffffff;}
 
 .tablemain table input {border: none;width: 90%;text-align: center;}
 .tablemain table input.period-input {width: 40%;}
+
+input.searchinput {
+    border: 1px solid #b3b3b3;
+    border-right-color: #e8e8e8;
+    border-bottom-color: #e8e8e8;
+    width:126px;height: 18px;margin-bottom: 5px;}

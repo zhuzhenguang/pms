@@ -3,37 +3,39 @@
  */
 var pmsController = angular.module('pmsController', []);
 
-pmsController.controller('MainCtrl', ['$scope', 'Resize', function ($scope, Resize) {
-    angular.element('.searchbox select').selectbox();
-    Resize.execute();
+pmsController.controller('MainCtrl', ['$scope', 'Resize', 'Modal',
+    function ($scope, Resize, Modal) {
+        Resize.execute();
 
-    $scope.pop = function() {
-        angular.element('.pop_new').dialog('open');
+        $scope.pop = function () {
+            Modal.projectNew.open();
+        }
     }
-}]);
+]);
 
 pmsController.controller('ProjectCtrl', ['$scope', 'Project', function ($scope, Project) {
     $scope.projects = Project.query();
 }]);
 
-pmsController.controller('PopCtrl', ['$scope', function($scope) {
-    angular.element('.pop_new').dialog({
-        //dialogClass: "no-close",
-        modal: true,
-        width: 670,
-        /*height: 480,*/
-        autoOpen: false,
-        show: {
-            effect: "blind",
-            duration: 1000
-        },
-        hide: {
-            effect: "fade",
-            duration: 1000
-        }
-    });
+pmsController.controller('PopCtrl', ['$scope', 'Modal', function ($scope, Modal) {
+    Modal.projectNew.register();
 
-    $scope.close = function() {
-        angular.element('.pop_new').dialog('close');
-    }
+    $scope.close = function () {
+        Modal.projectNew.close();
+    };
 }]);
+
+pmsController.controller('SearchCtrl', ['$scope', 'CONTRACT', 'ProjectType', function ($scope, CONTRACT, ProjectType) {
+    $scope.radio = function (id) {
+        $scope[CONTRACT[id]] = "radio_on";
+        $scope[CONTRACT[Math.abs(id - 1)]] = "";
+    };
+
+    ProjectType.query()
+        .$promise.then(function(projectTypes) {
+            $scope.projectTypes = projectTypes;
+            angular.element('.searchbox select').selectbox();
+        })
+}]);
+
+pmsController.constant('CONTRACT', ['contractY', 'contractN']);
