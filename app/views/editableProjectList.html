@@ -1,0 +1,38 @@
+<td><a href="#none" class="checkbox" ng-click="checkbox($event)"></a></td>
+<td>{{$index + 1}}</td>
+<td class="green"><input value="{{project.corporation}}"></td>
+<td class="green">{{project.salesRepresentative.name}}</td>
+<td class="green"><input value="{{project.capability}}%"></td>
+<td>
+    <select ng-value="project.projectType.typeValue" ng-select>
+        <option value="1">HW/SW</option>
+        <option value="2">维护</option>
+        <option value="3">人力投入</option>
+        <option value="4">日常施工</option>
+    </select>
+</td>
+<td><input value="{{project.projectNo}}"></td>
+<td><input value="{{project.projectName}}"></td>
+<td><input class="date" value="{{project.previousFinishDate}}" ng-date-picker></td>
+<td>
+    <input class="period-input date" value="{{project.projectPeriod.startDate}}" ng-date-picker>
+    -
+    <input class="period-input date" value="{{project.projectPeriod.endDate}}" ng-date-picker>
+</td>
+<td><input class="month" value="{{project.estimateContractDate}}" ng-date-picker></td>
+<td><input value="￥{{project.saleAmountCN}}"></td>
+<td><input value="${{project.saleAmountUS}}"></td>
+<td>
+    <a href="javascript:void(0)" class="radio radio_{{project.relateSDSK}}" ng-click="radio($index, 'relateSDSK', $event)">是</a>
+    <a href="javascript:void(0)" class="radio radio_{{!project.relateSDSK}}" ng-click="radio($index, 'relateSDSK', $event)">否</a>
+</td>
+<td><input value="{{project.profitRate}}"></td>
+<td ng-repeat="mm in project.manMonths"><input value="{{mm.mmValue}}"></td>
+<td>
+    <a href="javascript:void(0)" class="radio radio_{{project.inputSAP}}" ng-click="radio($index, 'inputSAP', $event)">是</a>
+    <a href="javascript:void(0)" class="radio radio_{{!project.inputSAP}}" ng-click="radio($index, 'inputSAP', $event)">否</a>
+</td>
+<td>
+    <a href="javascript:void(0)" class="radio radio_{{project.contract}}" ng-click="radio($index, 'contract', $event)">是</a>
+    <a href="javascript:void(0)" class="radio radio_{{!project.contract}}" ng-click="radio($index, 'contract', $event)">否</a>
+</td>

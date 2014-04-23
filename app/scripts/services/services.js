@@ -80,3 +80,16 @@ pmsService.factory('ProjectType', ['$resource', function($resource) {
         query: {method: 'GET', isArray: true}
     })
 }]);
+
+pmsService.factory('Properties', function() {
+    return {
+        get: function(object, prop) {
+            var properties = prop.split('.'),
+                i, l = properties.length, o = object;
+            for (i = 0; i < l; i++) {
+                o = o[properties[i]];
+            }
+            return o;
+        }
+    };
+});

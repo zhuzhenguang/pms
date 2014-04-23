@@ -19,72 +19,81 @@
     </span>
 </div>
 
-<div id="contents">
+<div id="contents" ng-controller="ProjectCtrl">
     <span class="slideup">
-            <a href="#none"><img src="images/btn_scroll.gif"/></a>
-        </span>
+        <a href="#none"><img src="images/btn_scroll.gif"/></a>
+    </span>
 
-    <div class="searchbox" ng-controller="SearchCtrl">
-        <table cellpadding="0" cellspacing="0" border="0">
-            <colgroup>
-                <col width="4%"/>
-                <col width="10%"/>
-                <col width="6%"/>
-                <col width="10%"/>
-                <col width="4%"/>
-                <col width="10%"/>
-                <col width="6%"/>
-                <col width="10%"/>
-                <col width="6%"/>
-                <col width="10%"/>
-                <col width="6%"/>
-                <col width="10%"/>
-            </colgroup>
-            <tbody>
-            <tr>
-                <th><label for="search_corporation">法人：</label></th>
-                <td>
-                    <input id="search_corporation" class="searchinput"/>
-                </td>
-                <th><label for="search_sales_rep">销售代表：</label></th>
-                <td>
-                    <input id="search_sales_rep" class="searchinput"/>
-                </td>
-                <th><label for="search_project_type">分类：</label></th>
-                <td>
-                    <select id="search_project_type">
-                        <option ng-repeat="projectType in projectTypes" value="{{projectType.id}}">
-                            {{projectType.value}}
-                        </option>
-                    </select>
-                </td>
-                <th><label for="search_project_no">项目编号：</label></th>
-                <td>
-                    <input id="search_project_no" class="searchinput"/>
-                </td>
-                <th><label for="search_estimate_date">订单预期：</label></th>
-                <td>
-                    <input id="search_estimate_date" class="searchinput"/>
-                </td>
-                <th>签合同是否：</th>
-                <td>
-                    <a href="#none" class="radio {{contractY}}" ng-click="radio(0)">是</a>
-                    <a href="#none" class="radio {{contractN}}" ng-click="radio(1)">否</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+    <div ng-controller="SearchCtrl">
+        <div class="searchbox">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <colgroup>
+                    <col width="4%"/>
+                    <col width="10%"/>
+                    <col width="6%"/>
+                    <col width="10%"/>
+                    <col width="4%"/>
+                    <col width="10%"/>
+                    <col width="6%"/>
+                    <col width="10%"/>
+                    <col width="6%"/>
+                    <col width="10%"/>
+                    <col width="6%"/>
+                    <col width="10%"/>
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th><label for="search_corporation">法人：</label></th>
+                    <td>
+                        <input id="search_corporation" class="searchinput" ng-model="searchCondition.corporation"/>
+                    </td>
+                    <th><label for="search_sales_rep">销售代表：</label></th>
+                    <td>
+                        <input id="search_sales_rep" class="searchinput"
+                               ng-model="searchCondition.salesRepresentativeId"/>
+                    </td>
+                    <th><label for="search_project_type">分类：</label></th>
+                    <td>
+                        <select id="search_project_type" ng-model="searchCondition.projectTypeId" ng-select>
+                            <option value="1">HW/SW</option>
+                            <option value="2">维护</option>
+                            <option value="3">人力投入</option>
+                            <option value="4">日常施工</option>
+                        </select>
+                    </td>
+                    <th><label for="search_project_no">项目编号：</label></th>
+                    <td>
+                        <input id="search_project_no" class="searchinput" ng-model="searchCondition.projectNo"/>
+                    </td>
+                    <th><label for="search_estimate_date">订单预期：</label></th>
+                    <td>
+                        <input id="search_estimate_date" class="searchinput month"
+                               ng-model="searchCondition.estimateContractDate" ng-date-picker/>
+                    </td>
+                    <th>签合同是否：</th>
+                    <td>
+                        <a href="#none" class="radio {{contractY}}" ng-click="radio(0)">是</a>
+                        <a href="#none" class="radio {{contractN}}" ng-click="radio(1)">否</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="searchbtn">
+            <a href="#none" ng-click="search(searchCondition)">
+                <img src="images/btn_search.gif" alt="查询"
+                     onmouseover="this.src='images/btn_search_hover.gif'"
+                     onmousedown="this.src='images/btn_search_click.gif'"
+                     onmouseout="this.src='images/btn_search.gif'" />
+            </a>
+        </div>
     </div>
 
-    <div class="searchbtn"><a href="#none">
-        <img src="images/btn_search.gif" alt="退出"
-             onmouseover="this.src='images/btn_search_hover.gif'"
-             onmousedown="this.src='images/btn_search_click.gif'"
-             onmouseout="this.src='images/btn_search.gif'" /></a></div>
 
     <div class="commonbtn">
         <ul class="left">
-            <li><a href="#none" ng-click="pop()">
+            <li><a href="#none" ng-click="add()">
                 <img src="images/btn_plus.gif" alt="新增"
                      onmouseover="this.src='images/btn_plus_hover.gif'"
                      onmousedown="this.src='images/btn_plus_click.gif'"
@@ -129,13 +138,13 @@
 
     <div id="data">
         <div class="tablemain">
-            <table cellpadding="0" cellspacing="0" border="0" ng-controller="ProjectCtrl">
+            <table cellpadding="0" cellspacing="0" border="0">
                 <colgroup>
                     <col width="27px"/>
                     <col width="36px"/>
                     <col width="85px"/>
                     <col width="94px"/>
-                    <col width="62px"/>
+                    <col width="94px"/>
                     <col width="104px"/>
                     <col width="126px"/>
                     <col width="214px"/>
@@ -143,6 +152,14 @@
                     <col width="176px"/>
                     <col width="91px"/>
                     <col width="94px"/>
+                    <col width="94px"/>
+                    <col width="110px"/>
+                    <col width="94px"/>
+                    <col width="120px"/>
+                    <col width="120px"/>
+                    <col width="120px"/>
+                    <col width="110px"/>
+                    <col width="110px"/>
                 </colgroup>
                 <thead>
                 <tr>
@@ -150,39 +167,181 @@
                     <th>No</th>
                     <th>法人</th>
                     <th>销售代表</th>
-                    <th>可能性</th>
+                    <th>可能性(%)</th>
                     <th>类型</th>
                     <th>项目编号</th>
                     <th>项目名称</th>
                     <th>维护结束日期</th>
                     <th>PJT期间</th>
                     <th>订单预期</th>
-                    <th>销售额</th>
+                    <th>销售额(RMB)</th>
+                    <th>销售额(USD)</th>
+                    <th>SDSK关联</th>
+                    <th>利润率(%)</th>
+                    <th>SSDG投入MM</th>
+                    <th>Architecure投入MM</th>
+                    <th>保安投入MM</th>
+                    <th>系统是否录入</th>
+                    <th>是否签合同</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="project in projects">
                     <td><a href="#none" class="checkbox" ng-click="checkbox($event)"></a></td>
                     <td>{{$index + 1}}</td>
-                    <td class="green"><input value="{{project.corporation}}"></td>
-                    <td class="green">{{project.saleRepresentativeName}}</td>
-                    <td class="green"><input value="{{project.capability}}%"></td>
-                    <td><input value="{{project.projectType}}"></td>
-                    <td><input value="{{project.projectNo}}"></td>
-                    <td><input value="{{project.projectName}}"></td>
-                    <td><input class="date" value="{{project.previousContractDate}}" date-picker></td>
-                    <td>
-                        <input class="period-input date" value="{{project.startDate}}" date-picker>
-                        -
-                        <input class="period-input date" value="{{project.endDate}}" date-picker>
+                    <!--法人-->
+                    <td class="green">
+                        <input ng-show="{{project.editable}}"
+                               ng-model="project.corporation"
+                               ng-change="record($event, $index, 'corporation')">
+                        <span ng-show="{{!project.editable}}">{{project.corporation}}</span>
                     </td>
-                    <td><input class="month" value="{{project.estimateContractDate}}" date-picker></td>
-                    <td><input value="￥{{project.sum}}"></td>
+
+                    <!--销售代表-->
+                    <td class="green">{{project.salesRepresentative.name}}</td>
+
+                    <!--可能性-->
+                    <td class="green">
+                        <input ng-show="{{project.editable}}"
+                               ng-model="project.capability"
+                               ng-change="record($event, $index, 'capability')">
+                        <span ng-show="{{!project.editable}}">{{project.capability}}</span>
+                    </td>
+
+                    <!--类型-->
+                    <td class="green">
+                        <select ng-model="project.projectType.id"
+                                ng-select
+                                ng-show="{{project.editable}}"
+                                ng-change="record($event, $index, 'projectType.id')">
+                            <option value="1">HW/SW</option>
+                            <option value="2">维护</option>
+                            <option value="3">人力投入</option>
+                            <option value="4">日常施工</option>
+                        </select>
+                        <span ng-show="{{!project.editable}}">{{project.projectType.typeValue}}</span>
+                    </td>
+
+                    <!--项目编号-->
+                    <td class="green">
+                        <input ng-show="{{project.editable}}"
+                               ng-model="project.projectNo"
+                               ng-change="record($event, $index, 'projectNo')">
+                        <span ng-show="{{!project.editable}}">{{project.projectNo}}</span>
+                    </td>
+
+                    <!--项目名称-->
+                    <td class="green">
+                        <input ng-show="{{project.editable}}"
+                               ng-model="project.projectName"
+                               ng-change="record($event, $index, 'projectName')">
+                        <span ng-show="{{!project.editable}}">{{project.projectName}}</span>
+                    </td>
+
+                    <!--上年完成日期-->
+                    <td class="green">
+                        <input class="date"
+                               ng-date-picker
+                               ng-show="{{project.editable}}"
+                               ng-model="project.previousFinishDate"
+                               ng-change="record($event, $index, 'previousFinishDate')">
+                        <span ng-show="{{!project.editable}}">{{project.previousFinishDate}}</span>
+                    </td>
+
+                    <!--日期区间-->
+                    <td class="green">
+                        <input class="period-input date"
+                               ng-model="project.projectPeriod.startDate"
+                               ng-date-picker
+                               ng-show="{{project.editable}}"
+                               ng-change="record($event, $index, 'projectPeriod.startDate')">
+                        <span ng-show="{{!project.editable}}">{{project.projectPeriod.startDate}}</span>
+                        -
+                        <input class="period-input date"
+                               ng-model="project.projectPeriod.endDate"
+                               ng-date-picker ng-show="{{project.editable}}"
+                               ng-change="record($event, $index, 'projectPeriod.endDate')">
+                        <span ng-show="{{!project.editable}}">{{project.projectPeriod.endDate}}</span>
+                    </td>
+
+                    <!--预计订单日期-->
+                    <td class="green">
+                        <input class="month"
+                               ng-model="project.estimateContractDate"
+                               ng-date-picker
+                               ng-show="{{project.editable}}"
+                               ng-change="record($event, $index, 'estimateContractDate')">
+                        <span ng-show="{{!project.editable}}">{{project.estimateContractDate}}</span>
+                    </td>
+
+                    <!--人民币金额-->
+                    <td class="green">
+                        <input ng-model="project.saleAmountCN"
+                               ng-show="{{project.editable}}"
+                               ng-change="record($event, $index, 'saleAmountCN')">
+                        <span ng-show="{{!project.editable}}">￥ {{project.saleAmountCN}}</span>
+                    </td>
+
+                    <!--美元金额-->
+                    <td class="green">
+                        <input ng-model="project.saleAmountUS"
+                               ng-show="{{project.editable}}"
+                               ng-change="record($event, $index, 'saleAmountUS')">
+                        <span ng-show="{{!project.editable}}">$ {{project.saleAmountUS}}</span>
+                    </td>
+
+                    <!--是否SDSK关联-->
+                    <td class="green">
+                        <a href="javascript:void(0)" ng-show="{{project.editable}}"
+                           class="radio radio_{{project.relateSDSK}}"
+                           ng-click="radio($index, 'relateSDSK', $event)">是</a>
+                        <a href="javascript:void(0)" ng-show="{{project.editable}}"
+                           class="radio radio_{{!project.relateSDSK}}"
+                           ng-click="radio($index, 'relateSDSK', $event)">否</a>
+                        <span ng-show="{{!project.editable}}">{{mapping[project.relateSDSK]}}</span>
+                    </td>
+
+                    <!--利润-->
+                    <td class="green">
+                        <input ng-model="project.profitRate"
+                               ng-show="{{project.editable}}"
+                               ng-change="record($event, $index, 'profitRate')">
+                        <span ng-show="{{!project.editable}}">{{project.profitRate}}%</span>
+                    </td>
+
+                    <!--人力-->
+                    <td ng-repeat="mm in project.manMonths" class="green">
+                        <input ng-model="mm.mmValue" ng-show="{{project.editable}}">
+                        <span ng-show="{{!project.editable}}">{{mm.mmValue}}</span>
+                    </td>
+
+                    <!--是否录入SAP-->
+                    <td class="green">
+                        <a href="javascript:void(0)" ng-show="{{project.editable}}"
+                           class="radio radio_{{project.inputSAP}}"
+                           ng-click="radio($index, 'inputSAP', $event)">是</a>
+                        <a href="javascript:void(0)" ng-show="{{project.editable}}"
+                           class="radio radio_{{!project.inputSAP}}"
+                           ng-click="radio($index, 'inputSAP', $event)">否</a>
+                        <span ng-show="{{!project.editable}}">{{mapping[project.inputSAP]}}</span>
+                    </td>
+
+                    <!--是否签了合同-->
+                    <td class="green">
+                        <a href="javascript:void(0)" ng-show="{{project.editable}}"
+                           class="radio radio_{{project.contract}}"
+                           ng-click="radio($index, 'contract', $event)">是</a>
+                        <a href="javascript:void(0)" ng-show="{{project.editable}}"
+                           class="radio radio_{{!project.contract}}"
+                           ng-click="radio($index, 'contract', $event)">否</a>
+                        <span ng-show="{{!project.editable}}">{{mapping[project.contract]}}</span>
+                    </td>
                 </tr>
 
                 </tbody>
             </table>
         </div>
+
         <div class="page">
             <dl class="nm">
                 <dt>Total&nbsp;:&nbsp;</dt>

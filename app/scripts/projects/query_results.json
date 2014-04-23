@@ -1,141 +1,252 @@
 [
     {
         "corporation": "SDTJ",
-        "saleRepresentativeName": "朱振光",
+        "salesRepresentative": {"name": "朱振光"},
         "capability": "80",
-        "projectType": "HW/SW",
+        "projectType": {"typeValue": "HW/SW", "id": 2},
         "projectNo": "CSIC-13000903",
         "projectName": "SDTJ上海财险",
-        "previousContractDate": "2012.12.31",
-        "startDate": "2013.01.01",
-        "endDate": "2014.02.28",
+        "previousFinishDate": "2012.12.31",
+        "projectPeriod": {"startDate": "2013.01.01", "endDate": "2014.02.28"},
         "estimateContractDate": "2014.02",
-        "sum": "250.00"
+        "saleAmountCN": "250.00",
+        "saleAmountUS": "25",
+        "profitRate": "30",
+        "relateSDSK": false,
+        "inputSAP": true,
+        "contract": true,
+        "manMonths": [
+            {"department": "SSDG", "mmValue": 12},
+            {"department": "Architecture", "mmValue": 12},
+            {"department": "保安", "mmValue": 12}
+        ],
+        "createTime": "2014-04-23",
+        "editable": true
     },
 
     {
         "corporation": "SDTJ",
-        "saleRepresentativeName": "朱振光",
+        "salesRepresentative": {"name": "朱振光"},
         "capability": "80",
-        "projectType": "HW/SW",
+        "projectType": {"typeValue": "HW/SW"},
         "projectNo": "CSIC-13000903",
         "projectName": "SDTJ上海财险",
-        "previousContractDate": "2012.12.31",
-        "startDate": "2013.01.01",
-        "endDate": "2014.02.28",
+        "previousFinishDate": "2012.12.31",
+        "projectPeriod": {"startDate": "2013.01.01", "endDate": "2014.02.28"},
         "estimateContractDate": "2014.02",
-        "sum": "250.00"
+        "saleAmountCN": "250.00",
+        "saleAmountUS": "25",
+        "profitRate": "30",
+        "relateSDSK": true,
+        "inputSAP": true,
+        "contract": true,
+        "manMonths": [
+            {"department": "SSDG", "mmValue": 12},
+            {"department": "Architecture", "mmValue": 12},
+            {"department": "保安", "mmValue": 12}
+        ],
+        "createTime": "2014-04-23",
+        "editable": true
     },
 
     {
         "corporation": "SDTJ",
-        "saleRepresentativeName": "朱振光",
+        "salesRepresentative": {"name": "朱振光"},
         "capability": "80",
-        "projectType": "HW/SW",
+        "projectType": {"typeValue": "HW/SW"},
         "projectNo": "CSIC-13000903",
         "projectName": "SDTJ上海财险",
-        "previousContractDate": "2012.12.31",
-        "startDate": "2013.01.01",
-        "endDate": "2014.02.28",
+        "previousFinishDate": "2012.12.31",
+        "projectPeriod": {"startDate": "2013.01.01", "endDate": "2014.02.28"},
         "estimateContractDate": "2014.02",
-        "sum": "250.00"
+        "saleAmountCN": "250.00",
+        "saleAmountUS": "25",
+        "profitRate": "30",
+        "relateSDSK": true,
+        "inputSAP": true,
+        "contract": true,
+        "manMonths": [
+            {"department": "SSDG", "mmValue": 12},
+            {"department": "Architecture", "mmValue": 12},
+            {"department": "保安", "mmValue": 12}
+        ],
+        "createTime": "2014-04-23",
+        "editable": true
     },
 
     {
         "corporation": "SDTJ",
-        "saleRepresentativeName": "朱振光",
+        "salesRepresentative": {"name": "朱振光"},
         "capability": "80",
-        "projectType": "HW/SW",
+        "projectType": {"typeValue": "HW/SW"},
         "projectNo": "CSIC-13000903",
         "projectName": "SDTJ上海财险",
-        "previousContractDate": "2012.12.31",
-        "startDate": "2013.01.01",
-        "endDate": "2014.02.28",
+        "previousFinishDate": "2012.12.31",
+        "projectPeriod": {"startDate": "2013.01.01", "endDate": "2014.02.28"},
         "estimateContractDate": "2014.02",
-        "sum": "250.00"
+        "saleAmountCN": "250.00",
+        "saleAmountUS": "25",
+        "profitRate": "30",
+        "relateSDSK": true,
+        "inputSAP": true,
+        "contract": true,
+        "manMonths": [
+            {"department": "SSDG", "mmValue": 12},
+            {"department": "Architecture", "mmValue": 12},
+            {"department": "保安", "mmValue": 12}
+        ],
+        "createTime": "2014-04-23",
+        "editable": true
     },
 
     {
         "corporation": "SDTJ",
-        "saleRepresentativeName": "朱振光",
+        "salesRepresentative": {"name": "朱振光"},
         "capability": "80",
-        "projectType": "HW/SW",
+        "projectType": {"typeValue": "HW/SW"},
         "projectNo": "CSIC-13000903",
         "projectName": "SDTJ上海财险",
-        "previousContractDate": "2012.12.31",
-        "startDate": "2013.01.01",
-        "endDate": "2014.02.28",
+        "previousFinishDate": "2012.12.31",
+        "projectPeriod": {"startDate": "2013.01.01", "endDate": "2014.02.28"},
         "estimateContractDate": "2014.02",
-        "sum": "250.00"
+        "saleAmountCN": "250.00",
+        "saleAmountUS": "25",
+        "profitRate": "30",
+        "relateSDSK": true,
+        "inputSAP": true,
+        "contract": true,
+        "manMonths": [
+            {"department": "SSDG", "mmValue": 12},
+            {"department": "Architecture", "mmValue": 12},
+            {"department": "保安", "mmValue": 12}
+        ],
+        "createTime": "2014-04-23",
+        "editable": true
     },
 
     {
         "corporation": "SDTJ",
-        "saleRepresentativeName": "朱振光",
+        "salesRepresentative": {"name": "朱振光"},
         "capability": "80",
-        "projectType": "HW/SW",
+        "projectType": {"typeValue": "HW/SW"},
         "projectNo": "CSIC-13000903",
         "projectName": "SDTJ上海财险",
-        "previousContractDate": "2012.12.31",
-        "startDate": "2013.01.01",
-        "endDate": "2014.02.28",
+        "previousFinishDate": "2012.12.31",
+        "projectPeriod": {"startDate": "2013.01.01", "endDate": "2014.02.28"},
         "estimateContractDate": "2014.02",
-        "sum": "250.00"
+        "saleAmountCN": "250.00",
+        "saleAmountUS": "25",
+        "profitRate": "30",
+        "relateSDSK": true,
+        "inputSAP": true,
+        "contract": true,
+        "manMonths": [
+            {"department": "SSDG", "mmValue": 12},
+            {"department": "Architecture", "mmValue": 12},
+            {"department": "保安", "mmValue": 12}
+        ],
+        "createTime": "2014-04-23",
+        "editable": false
     },
 
     {
         "corporation": "SDTJ",
-        "saleRepresentativeName": "朱振光",
+        "salesRepresentative": {"name": "朱振光"},
         "capability": "80",
-        "projectType": "HW/SW",
+        "projectType": {"typeValue": "HW/SW"},
         "projectNo": "CSIC-13000903",
         "projectName": "SDTJ上海财险",
-        "previousContractDate": "2012.12.31",
-        "startDate": "2013.01.01",
-        "endDate": "2014.02.28",
+        "previousFinishDate": "2012.12.31",
+        "projectPeriod": {"startDate": "2013.01.01", "endDate": "2014.02.28"},
         "estimateContractDate": "2014.02",
-        "sum": "250.00"
+        "saleAmountCN": "250.00",
+        "saleAmountUS": "25",
+        "profitRate": "30",
+        "relateSDSK": true,
+        "inputSAP": true,
+        "contract": true,
+        "manMonths": [
+            {"department": "SSDG", "mmValue": 12},
+            {"department": "Architecture", "mmValue": 12},
+            {"department": "保安", "mmValue": 12}
+        ],
+        "createTime": "2014-04-23",
+        "editable": false
     },
 
     {
         "corporation": "SDTJ",
-        "saleRepresentativeName": "朱振光",
+        "salesRepresentative": {"name": "朱振光"},
         "capability": "80",
-        "projectType": "HW/SW",
+        "projectType": {"typeValue": "HW/SW"},
         "projectNo": "CSIC-13000903",
         "projectName": "SDTJ上海财险",
-        "previousContractDate": "2012.12.31",
-        "startDate": "2013.01.01",
-        "endDate": "2014.02.28",
+        "previousFinishDate": "2012.12.31",
+        "projectPeriod": {"startDate": "2013.01.01", "endDate": "2014.02.28"},
         "estimateContractDate": "2014.02",
-        "sum": "250.00"
+        "saleAmountCN": "250.00",
+        "saleAmountUS": "25",
+        "profitRate": "30",
+        "relateSDSK": true,
+        "inputSAP": true,
+        "contract": true,
+        "manMonths": [
+            {"department": "SSDG", "mmValue": 12},
+            {"department": "Architecture", "mmValue": 12},
+            {"department": "保安", "mmValue": 12}
+        ],
+        "createTime": "2014-04-23",
+        "editable": false
     },
 
     {
         "corporation": "SDTJ",
-        "saleRepresentativeName": "朱振光",
+        "salesRepresentative": {"name": "朱振光"},
         "capability": "80",
-        "projectType": "HW/SW",
+        "projectType": {"typeValue": "HW/SW"},
         "projectNo": "CSIC-13000903",
         "projectName": "SDTJ上海财险",
-        "previousContractDate": "2012.12.31",
-        "startDate": "2013.01.01",
-        "endDate": "2014.02.28",
+        "previousFinishDate": "2012.12.31",
+        "projectPeriod": {"startDate": "2013.01.01", "endDate": "2014.02.28"},
         "estimateContractDate": "2014.02",
-        "sum": "250.00"
+        "saleAmountCN": "250.00",
+        "saleAmountUS": "25",
+        "profitRate": "30",
+        "relateSDSK": true,
+        "inputSAP": true,
+        "contract": true,
+        "manMonths": [
+            {"department": "SSDG", "mmValue": 12},
+            {"department": "Architecture", "mmValue": 12},
+            {"department": "保安", "mmValue": 12}
+        ],
+        "createTime": "2014-04-23",
+        "editable": false
     },
 
     {
         "corporation": "SDTJ",
-        "saleRepresentativeName": "朱振光",
+        "salesRepresentative": {"name": "朱振光"},
         "capability": "80",
-        "projectType": "HW/SW",
+        "projectType": {"typeValue": "HW/SW"},
         "projectNo": "CSIC-13000903",
         "projectName": "SDTJ上海财险",
-        "previousContractDate": "2012.12.31",
-        "startDate": "2013.01.01",
-        "endDate": "2014.02.28",
+        "previousFinishDate": "2012.12.31",
+        "projectPeriod": {"startDate": "2013.01.01", "endDate": "2014.02.28"},
         "estimateContractDate": "2014.02",
-        "sum": "250.00"
+        "saleAmountCN": "250.00",
+        "saleAmountUS": "25",
+        "profitRate": "30",
+        "relateSDSK": true,
+        "inputSAP": true,
+        "contract": true,
+        "manMonths": [
+            {"department": "SSDG", "mmValue": 12},
+            {"department": "Architecture", "mmValue": 12},
+            {"department": "保安", "mmValue": 12}
+        ],
+        "createTime": "2014-04-23",
+        "editable": false
     }
+
 ]

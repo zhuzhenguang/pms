@@ -22,7 +22,7 @@ body { font-size:12px; min-width:1280px; background: #ffffff;}
 #contents .datahead { margin-top:54px;}
 #contents #data { margin-top:54px;}
 #contents #data .tablemain { overflow-x:auto; min-width:1200px; width:100%;  }
-#contents #data table { border-top:1px solid #acacae; border-bottom:1px solid #acacae;/*width: 100%;table-layout: fixed;*/}
+#contents #data table { border-top:1px solid #acacae; border-bottom:1px solid #acacae;width: 100%;table-layout: fixed;}
 #contents #data table thead th { padding-top:6px; padding-bottom:6px; background:#e2e2e2;border-left:1px solid #d7d7d7; font-weight:normal; }
 #contents #data table thead tr th:first-child { border-left:none; }
 #contents #data table tbody tr { background:#fff;}
@@ -50,11 +50,15 @@ body { font-size:12px; min-width:1280px; background: #ffffff;}
 .footer { height:24px; background:#cdcdcd;}
 .footer .copyright { width:337px; margin:0 auto; }
 
-.tablemain table input {border: none;width: 90%;text-align: center;}
+.tablemain table input {border: none;width: 90%;text-align: center;height: 14px;}
 .tablemain table input.period-input {width: 40%;}
+.tablemain table input.selectbox {margin: 0;}
+.tablemain table div.selectbox-wrapper {margin-top: 0;}
+.tablemain table input.selectbox:focus {height: 14px;}
 
 input.searchinput {
     border: 1px solid #b3b3b3;
     border-right-color: #e8e8e8;
     border-bottom-color: #e8e8e8;
     width:126px;height: 18px;margin-bottom: 5px;}
+.searchbox a.radio {margin-bottom: 5px;}
