@@ -21,7 +21,7 @@
 
 <div id="contents" ng-controller="ProjectCtrl">
     <span class="slideup">
-        <a href="#none"><img src="images/btn_scroll.gif"/></a>
+        <a href="#none" ng-click="top()"><img src="images/btn_scroll.gif"/></a>
     </span>
 
     <div ng-controller="SearchCtrl">
@@ -101,7 +101,7 @@
 
                 <div class="info"><img src="images/img_plus.png" /></div>
             </li>
-            <li><a href="#none">
+            <li><a href="#none" ng-click="remove()">
                 <img src="images/btn_minus.gif" alt="删除"
                      onmouseover="this.src='images/btn_minus_hover.gif'"
                      onmousedown="this.src='images/btn_minus_click.gif'"
@@ -111,7 +111,7 @@
             </li>
         </ul>
         <ul class="right">
-            <li><a href="#none">
+            <li><a href="#none" ng-click="update()">
                 <img src="images/btn_save.gif" alt="保存"
                      onmouseover="this.src='images/btn_save_hover.gif'"
                      onmousedown="this.src='images/btn_save_click.gif'"
@@ -119,13 +119,13 @@
 
                 <div class="info"><img src="images/img_save.png" /></div>
             </li>
-            <li><a href="#none">
+            <!--<li><a href="#none">
                 <img src="images/btn_refresh.gif" alt="刷新"
                      onmouseover="this.src='images/btn_refresh_hover.gif'"
                      onmousedown="this.src='images/btn_refresh_click.gif'"
                      onmouseout="this.src='images/btn_refresh.gif'" /></a>
                 <div class="info"><img src="images/img_refresh.png" /></div>
-            </li>
+            </li>-->
             <li><a href="#none">
                 <img src="images/btn_excel.gif" alt="excel表格"
                      onmouseover="this.src='images/btn_excel_hover.gif'"
@@ -165,29 +165,33 @@
                 <tr>
                     <th>&nbsp;</th>
                     <th>No</th>
-                    <th>法人</th>
+                    <th><span class="required">*</span>法人</th>
                     <th>销售代表</th>
                     <th>可能性(%)</th>
-                    <th>类型</th>
+                    <th><span class="required">*</span>类型</th>
                     <th>项目编号</th>
-                    <th>项目名称</th>
+                    <th><span class="required">*</span>项目名称</th>
                     <th>维护结束日期</th>
                     <th>PJT期间</th>
                     <th>订单预期</th>
                     <th>销售额(RMB)</th>
                     <th>销售额(USD)</th>
-                    <th>SDSK关联</th>
+                    <th><span class="required">*</span>SDSK关联</th>
                     <th>利润率(%)</th>
                     <th>SSDG投入MM</th>
                     <th>Architecure投入MM</th>
                     <th>保安投入MM</th>
-                    <th>系统是否录入</th>
-                    <th>是否签合同</th>
+                    <th><span class="required">*</span>系统是否录入</th>
+                    <th><span class="required">*</span>是否签合同</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="project in projects">
-                    <td><a href="#none" class="checkbox" ng-click="checkbox($event)"></a></td>
+                <tr ng-repeat="project in projects" ng-init="outIndex=$index">
+                    <td>
+                        <a href="#none" class="checkbox"
+                           ng-click="checkbox($event, $index)"
+                           ng-show="{{project.editable}}"></a>
+                    </td>
                     <td>{{$index + 1}}</td>
                     <!--法人-->
                     <td class="green">
@@ -204,7 +208,7 @@
                     <td class="green">
                         <input ng-show="{{project.editable}}"
                                ng-model="project.capability"
-                               ng-change="record($event, $index, 'capability')">
+                               ng-change="record($event, $index, 'capability')" integer>
                         <span ng-show="{{!project.editable}}">{{project.capability}}</span>
                     </td>
 
@@ -278,16 +282,16 @@
                     <td class="green">
                         <input ng-model="project.saleAmountCN"
                                ng-show="{{project.editable}}"
-                               ng-change="record($event, $index, 'saleAmountCN')">
-                        <span ng-show="{{!project.editable}}">￥ {{project.saleAmountCN}}</span>
+                               ng-change="record($event, $index, 'saleAmountCN')" double>
+                        <span ng-show="{{!project.editable}}">{{project.saleAmountCN}}</span>
                     </td>
 
                     <!--美元金额-->
                     <td class="green">
                         <input ng-model="project.saleAmountUS"
                                ng-show="{{project.editable}}"
-                               ng-change="record($event, $index, 'saleAmountUS')">
-                        <span ng-show="{{!project.editable}}">$ {{project.saleAmountUS}}</span>
+                               ng-change="record($event, $index, 'saleAmountUS')" double>
+                        <span ng-show="{{!project.editable}}">{{project.saleAmountUS}}</span>
                     </td>
 
                     <!--是否SDSK关联-->
@@ -305,13 +309,15 @@
                     <td class="green">
                         <input ng-model="project.profitRate"
                                ng-show="{{project.editable}}"
-                               ng-change="record($event, $index, 'profitRate')">
-                        <span ng-show="{{!project.editable}}">{{project.profitRate}}%</span>
+                               ng-change="record($event, $index, 'profitRate')" integer>
+                        <span ng-show="{{!project.editable}}">{{project.profitRate}}</span>
                     </td>
 
                     <!--人力-->
                     <td ng-repeat="mm in project.manMonths" class="green">
-                        <input ng-model="mm.mmValue" ng-show="{{project.editable}}">
+                        <input ng-model="mm.mmValue"
+                               ng-show="{{project.editable}}"
+                               ng-change="record($event, outIndex, 'manMonths.' + $index + '.mmValue')" double>
                         <span ng-show="{{!project.editable}}">{{mm.mmValue}}</span>
                     </td>
 
@@ -342,25 +348,40 @@
             </table>
         </div>
 
-        <div class="page">
+        <div class="page" ng-show="projects && projects.length > 0">
             <dl class="nm">
                 <dt>Total&nbsp;:&nbsp;</dt>
-                <dd>98</dd>
+                <dd>{{page.count}}</dd>
             </dl>
             <ul class="page_nm">
-                <li><a href="#none"><img src="images/btn_leftall.gif" /></a></li>
-                <li><a href="#none"><img src="images/btn_left.gif" /></a></li>
-                <li><a href="#none">1</a></li>
-                <li><a href="#none">2</a></li>
-                <li><a href="#none">3</a></li>
-                <li><a href="#none" class="on">4</a></li>
-                <li><a href="#none">5</a></li>
-                <li><a href="#none">6</a></li>
-                <li><a href="#none">7</a></li>
-                <li><a href="#none">8</a></li>
-                <li><a href="#none">9</a></li>
-                <li><a href="#none"><img src="images/btn_right.gif" /></a></li>
-                <li><a href="#none"><img src="images/btn_rightall.gif" /></a></li>
+                <li><!--首页-->
+                    <a href="#none" ng-click="search(1)" ng-show="page.currentPageNo != 1">
+                        <img src="images/btn_leftall.gif" />
+                    </a>
+                    <img src="images/btn_leftall.gif" ng-show="page.currentPageNo == 1"/>
+                </li>
+                <li><!--前一页-->
+                    <a href="#none" ng-click="search(page.currentPageNo - 1)" ng-show="page.currentPageNo != 1">
+                        <img src="images/btn_left.gif" />
+                    </a>
+                    <img src="images/btn_left.gif" ng-show="page.currentPageNo == 1"/>
+                </li>
+                <li ng-repeat="no in page.pageArray"><!--所有页码-->
+                    <span ng-show="no == page.currentPageNo" class="{{no == page.currentPageNo}}">{{no}}</span>
+                    <a href="#none" ng-click="search(no)" ng-show="no != page.currentPageNo">{{no}}</a>
+                </li>
+                <li><!--下一页-->
+                    <a href="#none" ng-click="search(page.currentPageNo + 1)" ng-show="page.currentPageNo != page.pageCount">
+                        <img src="images/btn_right.gif" />
+                    </a>
+                    <img src="images/btn_right.gif" ng-show="page.currentPageNo == page.pageCount" />
+                </li>
+                <li><!--末页-->
+                    <a href="#none" ng-click="search(page.pageCount)" ng-show="page.currentPageNo != page.pageCount">
+                        <img src="images/btn_rightall.gif" />
+                    </a>
+                    <img src="images/btn_rightall.gif" ng-show="page.currentPageNo == page.pageCount" />
+                </li>
             </ul>
         </div>
     </div>
@@ -370,6 +391,6 @@
     <div class="copyright"><img src="images/img_copyright.gif"/></div>
 </div>
 
-<div ng-include="'views/popup.html'"></div>
+<div ng-include="'views/new.html'"></div>
 
 

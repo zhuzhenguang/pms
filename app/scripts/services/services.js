@@ -10,12 +10,25 @@ pmsService.factory('Resize', function () {
         angular.element('#data').height(wh - 66 - 25 - 176);
     }
 
+    function topHeight() {
+        var wh = angular.element(document).height();
+        angular.element('#contents').height(wh - 25);
+        angular.element('#data').height(wh - 25 - 176);
+    }
+
     return {
         execute: function () {
-            angular.element(window).resize(function () {
+            angular.element(window).unbind('resize').resize(function () {
                 adjustHeight();
             });
             adjustHeight();
+        },
+
+        top: function() {
+            angular.element(window).unbind('resize').resize(function () {
+                topHeight();
+            });
+            topHeight();
         }
     };
 });
@@ -45,11 +58,11 @@ pmsService.factory('Modal', function () {
                 autoOpen: false,
                 show: {
                     effect: "blind",
-                    duration: 1000
+                    duration: 500
                 },
                 hide: {
                     effect: "fade",
-                    duration: 1000
+                    duration: 500
                 }
             });
         },
@@ -58,7 +71,7 @@ pmsService.factory('Modal', function () {
             this.modal.dialog('close');
         },
 
-        open: function() {
+        open: function () {
             this.modal.dialog('open');
         }
     };
@@ -69,27 +82,54 @@ pmsService.factory('Modal', function () {
 
 });
 
-pmsService.factory('Project', ['$resource', function ($resource) {
+pmsService.factory('Projects', ['$resource', function ($resource) {
     return $resource('scripts/projects/query_results.json', {}, {
-        query: {method: 'GET', isArray: true}
+        query: {method: 'GET', isArray: false},
+        update: {method: 'PUT'},
+        remove: {method: 'DELETE'}
     });
 }]);
 
-pmsService.factory('ProjectType', ['$resource', function($resource) {
+pmsService.factory('Project', ['$resource', function ($resource) {
+    return $resource('scripts/project', {}, {
+        save: {method: 'POST'}
+    });
+}]);
+
+pmsService.factory('ProjectType', ['$resource', function ($resource) {
     return $resource('scripts/projects/project_types.json', {}, {
         query: {method: 'GET', isArray: true}
     })
 }]);
 
-pmsService.factory('Properties', function() {
+pmsService.factory('Properties', function () {
     return {
-        get: function(object, prop) {
+        get: function (object, prop) {
             var properties = prop.split('.'),
                 i, l = properties.length, o = object;
             for (i = 0; i < l; i++) {
                 o = o[properties[i]];
             }
             return o;
+        }
+    };
+});
+
+pmsService.factory('Validator', function () {
+    var requiredProperties = {
+        projectName: "项目名称",
+        corporation: "法人"
+    };
+    return {
+        validate: function (project) {
+            for (var prop in requiredProperties) {
+                if (requiredProperties.hasOwnProperty(prop) &&
+                    (!project[prop] || $.trim(project[prop]) == '')) {
+                    alert(requiredProperties[prop] + "为必录项目！");
+                    return false;
+                }
+            }
+            return true;
         }
     };
 });

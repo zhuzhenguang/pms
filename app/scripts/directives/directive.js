@@ -22,7 +22,7 @@ pmsDirective.directive('ngSelect', function () {
     function link(scope, element, attrs) {
         if (!scope.project || scope.project.editable) {
             var $element = angular.element(element);
-            if (scope.project) {
+            if (scope.project && scope.project.projectType) {
                 var id = scope.project.projectType.id;
                 $element.find('[value=' + id + ']').attr('selected', true);
             }
@@ -35,8 +35,32 @@ pmsDirective.directive('ngSelect', function () {
     };
 });
 
-pmsDirective.directive('ngGrid', function () {
+pmsDirective.directive('integer', function () {
+    var number = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
     function link(scope, element, attrs) {
+        element.on('keypress', function(e) {
+            if ($.inArray(e.keyCode, number) == -1) {
+                e.preventDefault();
+            }
+        });
+    }
 
+    return {
+        link: link
+    }
+});
+
+pmsDirective.directive('double', function () {
+    var number = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 46];
+    function link(scope, element, attrs) {
+        element.on('keypress', function(e) {
+            if ($.inArray(e.keyCode, number) == -1) {
+                e.preventDefault();
+            }
+        });
+    }
+
+    return {
+        link: link
     }
 });

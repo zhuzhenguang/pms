@@ -1,0 +1,106 @@
+<div class="pop_new" ng-controller="NewCtrl">
+    <div class="top">
+        <h2>项目新增</h2>
+        <span><img src="images/img_popup01.gif" /></span>
+    </div>
+    <div class="main">
+        <form novalidate>
+            <table cellpadding="0" cellspacing="0" border="0">
+                <colgroup>
+                    <col width="122px" />
+                    <col width="100px;" />
+                    <col width="" />
+                    <col width="100px" />
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th><span class="required">*</span>项目名称：</th>
+                    <td colspan="3"><input class="long" ng-model="project.projectName" name="project.projectName" /></td>
+                </tr>
+                <tr>
+                    <th><span class="required">*</span>法人：</th>
+                    <td><input ng-model="project.corporation" name="project.corporation" /></td>
+                    <th>可能性(%)：</th>
+                    <td><input ng-model="project.capability" type="number" name="project.corporation" integer /></td>
+                </tr>
+                <tr>
+                    <th><span class="required">*</span>类型：</th>
+                    <td>
+                        <select ng-model="project.projectType.id" ng-select>
+                            <option value="1">HW/SW</option>
+                            <option value="2">维护</option>
+                            <option value="3">人力投入</option>
+                            <option value="4">日常施工</option>
+                        </select>
+                    </td>
+                    <th>项目编号：</th>
+                    <td><input ng-model="project.projectNo" name="project.projectNo" /></td>
+                </tr>
+                <tr>
+                    <th>维护结束日期：</th>
+                    <td>
+                        <input ng-model="project.previousFinishDate" class="date" ng-date-picker name="project.previousFinishDate" />
+                    </td>
+                    <th>PJT期间：</th>
+                    <td>
+                        <input class="short date" ng-model="project.projectPeriod.startDate" ng-date-picker name="project.projectPeriod.startDate" />
+                        -
+                        <input  class="short date" ng-model="project.projectPeriod.endDate" ng-date-picker name="project.projectPeriod.endDate"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>订单预期：</th>
+                    <td><input class="month" ng-model="project.estimateContractDate" ng-date-picker name="project.estimateContractDate"/></td>
+                    <th>销售额(RMB)：</th>
+                    <td><input ng-model="project.saleAmountCN" type="number" name="project.saleAmountCN" double /></td>
+                </tr>
+                <tr>
+                    <th>销售额(USD)：</th>
+                    <td><input ng-model="project.saleAmountUS" type="number" name="project.saleAmountUS" double /></td>
+                    <th><span class="required">*</span>SDSK关联：</th>
+                    <td>
+                        <a href="#none" class="radio radio_{{project.relateSDSK}}" ng-click="radio('relateSDSK', $event)">是</a>
+                        <a href="#none" class="radio radio_{{!project.relateSDSK}}" ng-click="radio('relateSDSK', $event)">否</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>利润率(%)：</th>
+                    <td><input ng-model="project.profitRate" type="number" name="project.profitRate" integer /></td>
+                    <th>SSDG投入MM：</th>
+                    <td><input ng-model="project.manMonths[0].mmValue" type="number" name="project.manMonths[0].mmValue" double /></td>
+                </tr>
+                <tr>
+                    <th>Architecture<br />投入MM：</th>
+                    <td><input ng-model="project.manMonths[1].mmValue" type="number" name="project.manMonths[1].mmValue" double /></td>
+                    <th>保安MM：</th>
+                    <td><input ng-model="project.manMonths[2].mmValue" type="number" name="project.manMonths[2].mmValue" double /></td>
+                </tr>
+                <tr>
+                    <th><span class="required">*</span>系统录入是否：</th>
+                    <td>
+                        <a href="#none" class="radio radio_{{project.inputSAP}}" ng-click="radio('inputSAP', $event)">是</a>
+                        <a href="#none" class="radio radio_{{!project.inputSAP}}" ng-click="radio('inputSAP', $event)">否</a>
+                    </td>
+                    <th><span class="required">*</span>签合同是否：</th>
+                    <td>
+                        <a href="#none" class="radio radio_{{project.contract}}" ng-click="radio('contract', $event)">是</a>
+                        <a href="#none" class="radio radio_{{!project.contract}}" ng-click="radio('contract', $event)">否</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+        <div class="btn">
+            <a href="#none" style="margin-right:10px;" ng-click="add()">
+                <img src="images/btn_save02.gif" onmouseover="this.src='images/btn_save02_hover.gif'"
+                     onmousedown="this.src='images/btn_save02_click.gif'"
+                     onmouseout="this.src='images/btn_save02.gif'" />
+            </a>
+            <a href="#none" ng-click="close()">
+                <img src="images/btn_close.gif"  onmouseover="this.src='images/btn_close_hover.gif'"
+                     onmousedown="this.src='images/btn_close_click.gif'"
+                     onmouseout="this.src='images/btn_close.gif'"/>
+            </a>
+        </div>
+    </div>
+</div>

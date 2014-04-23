@@ -9,52 +9,135 @@ var pmsController = angular.module('pmsController', []);
 pmsController.controller('MainCtrl', ['$scope', 'Resize',
     function ($scope, Resize) {
         Resize.execute();
+
+        $scope.top = function() {
+            var header = angular.element('.header');
+            if (header.css('display') == 'none') {
+                Resize.execute();
+                header.show(500);
+            } else {
+                header.hide(500, function() {
+                    Resize.top();
+                });
+            }
+        };
     }
 ]);
 
 /**
  * 项目管理
  */
-pmsController.controller('ProjectCtrl', ['$scope', 'Project', 'Modal', 'Properties',
-    function ($scope, Project, Modal, Properties) {
-        $scope.search = function(searchCondition) {
-            console.log(searchCondition);
-            $scope.projects = Project.query(searchCondition, function(projects) {
-                $scope.originalProjects = angular.copy(projects);
+pmsController.controller('ProjectCtrl', ['$scope', 'Projects', 'Modal', 'Properties', 'Validator',
+    function ($scope, Projects, Modal, Properties, Validator) {
+
+        $scope.search = function () {
+            if (arguments.length == 1) {
+                var param = arguments[0];
+                if (angular.isObject(param)) {// 参数是查询条件
+                    $scope.searchCondition = param;
+                } else if (angular.isNumber(param) && $scope.searchCondition) {// 或者参数是页码
+                    $scope.searchCondition.from = (param - 1) * $scope.page.rows;
+                }
+            }
+
+            console.log($scope.searchCondition);
+            Projects.query($scope.searchCondition, function (result) {
+                $scope.projects = result.projects;
+                $scope.originalProjects = angular.copy(result.projects);
+                initPage(result);
             });
         };
+
+        function initPage(result) {
+            $scope.page = {
+                count: result.count,
+                currentPageNo: result.pageNo,
+                rows: result.rows,
+                pageCount: result.count / result.rows,
+                pageArray: []
+            };
+            for (var i = 0; i < $scope.page.pageCount; i++) {
+                $scope.page.pageArray.push(i + 1);
+            }
+        }
 
         $scope.add = function () {
             Modal.projectNew.open();
         };
 
-        $scope.update = function() {
-
+        $scope.update = function () {
+            var updatedProjects = [];
+            for (var index in $scope.changeIndexes) {
+                if ($scope.changeIndexes.hasOwnProperty(index) ) {
+                    if (!Validator.validate($scope.projects[index])) {
+                        return;
+                    }
+                    updatedProjects.push($scope.projects[index]);
+                }
+            }
+            console.log(updatedProjects);
+            //Projects.update(updatedProjects);
         };
 
-        $scope.remove = function() {
-
+        $scope.remove = function () {
+            var deletedProjectsId = [];
+            for (var id in $scope.deleteIds) {
+                if ($scope.deleteIds.hasOwnProperty(id)) {
+                    deletedProjectsId.push(id);
+                }
+            }
+            console.log(deletedProjectsId);
+            //Projects.remove(deletedProjectsId);
         };
 
-        $scope.record = function($event, $index, properties) {
+        /**
+         * 记录表格的变化，为更新做准备
+         *
+         * @param $event
+         * @param $index
+         * @param properties
+         */
+        $scope.record = function ($event, $index, properties) {
             var originalValue = Properties.get($scope.originalProjects[$index], properties),
-                //$element = angular.element($event.currentTarget),
                 currentValue = Properties.get($scope.projects[$index], properties);
             if (originalValue != currentValue) {
                 $scope.changeIndexes[$index] = true;
             } else {
                 delete $scope.changeIndexes[$index]
             }
-
-            console.log(originalValue);
-            console.log(currentValue);
-            console.log($scope.changeIndexes);
         };
 
-        $scope.radio = function(index, prop, $event) {
+        /**
+         * 自定义radio的变化
+         *
+         * @param $index
+         * @param prop
+         * @param $event
+         */
+        $scope.radio = function ($index, prop, $event) {
             if (!angular.element($event.currentTarget).hasClass('radio_true')) {
-                var value = $scope.projects[index][prop];
-                $scope.projects[index][prop] = !value;
+                var value = $scope.projects[$index][prop];
+                $scope.projects[$index][prop] = !value;
+                /* radio改变都要记录 */
+                $scope.record($event, $index, prop);
+            }
+        };
+
+        /**
+         * 自定义checkbox的变化
+         *
+         * @param $event
+         * @param $index
+         */
+        $scope.checkbox = function ($event, $index) {
+            var $element = angular.element($event.currentTarget),
+                projectId = $scope.projects[$index].id;
+            console.log(projectId);
+            $element.toggleClass('checkbox_on');
+            if ($element.hasClass('checkbox_on')) {
+                $scope.deleteIds[projectId] = true;
+            } else {
+                delete $scope.deleteIds[projectId];
             }
         };
 
@@ -64,25 +147,61 @@ pmsController.controller('ProjectCtrl', ['$scope', 'Project', 'Modal', 'Properti
         };
 
         $scope.changeIndexes = {};
+        $scope.deleteIds = {};
     }
 ]);
 
 /**
- * 弹出层管理
+ * 新增功能的控制
  */
-pmsController.controller('PopCtrl', ['$scope', 'Modal', function ($scope, Modal) {
-    Modal.projectNew.register();
+pmsController.controller('NewCtrl', ['$scope', 'Modal', 'Project', 'Validator',
+    function ($scope, Modal, Project, Validator) {
+        Modal.projectNew.register();
 
-    $scope.close = function () {
-        Modal.projectNew.close();
-    };
-}]);
+        $scope.project = {
+            relateSDSK: true,
+            inputSAP: true,
+            contract: true,
+            editable: true,
+            manMonths: [
+                {},
+                {},
+                {}
+            ]
+        };// radio先给默认值
+
+        $scope.add = function () {
+            console.log($scope.project);
+            if (Validator.validate($scope.project)) {
+                //Project.save($scope.project);
+                $scope.close();
+            }
+        };
+
+        /**
+         * 自定义radio变幻
+         *
+         * @param prop
+         * @param $event
+         */
+        $scope.radio = function (prop, $event) {
+            if (!angular.element($event.currentTarget).hasClass('radio_true')) {
+                var value = $scope.project[prop];
+                $scope.project[prop] = !value;
+            }
+        };
+
+        $scope.close = function () {
+            Modal.projectNew.close();
+        };
+    }
+]);
 
 /**
  * 搜索
  */
-pmsController.controller('SearchCtrl', ['$scope', '$rootScope', 'CONTRACT', 'Project',
-    function ($scope, $rootScope, CONTRACT, Project) {
+pmsController.controller('SearchCtrl', ['$scope', '$rootScope', 'CONTRACT',
+    function ($scope, $rootScope, CONTRACT) {
         $scope.searchCondition = {from: 0, rows: 10};
 
         $scope.radio = function (id) {
