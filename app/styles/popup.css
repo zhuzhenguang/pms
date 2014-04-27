@@ -1,9 +1,10 @@
 @charset "utf-8";
 /* CSS Document */
-div#pop_new {
+div.pop_new {
     width: 730px; /*height:480px;*/
     font-size: 12px;
     color: #363636;
+    display: none;
 }
 
 .top {

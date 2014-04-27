@@ -8,6 +8,7 @@ var pmsApp = angular.module('pmsApp', [
     'pmsDirective'
 ]);
 
+/*
 pmsApp.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider.
@@ -15,4 +16,4 @@ pmsApp.config(['$routeProvider',
                 templateUrl: 'views/main.html',
                 controller: 'MainCtrl'
             });
-    }]);
+    }]);*/
