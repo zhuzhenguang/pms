@@ -7,10 +7,10 @@
         <form novalidate>
             <table cellpadding="0" cellspacing="0" border="0">
                 <colgroup>
-                    <col width="122px" />
-                    <col width="100px;" />
-                    <col width="" />
-                    <col width="100px" />
+                    <col width="150px" />
+                    <col width="190px" />
+                    <col width="150px" />
+                    <col width="240px" />
                 </colgroup>
                 <tbody>
                 <tr>
@@ -39,18 +39,28 @@
                 <tr>
                     <th>维护结束日期：</th>
                     <td>
-                        <input ng-model="project.previousFinishDate" class="date" ng-date-picker name="project.previousFinishDate" />
+                        <div class="calendar-container">
+                            <input ng-model="project.previousFinishDate" class="date" ng-date-picker name="project.previousFinishDate" />
+                        </div>
                     </td>
                     <th>PJT期间：</th>
                     <td>
-                        <input class="short date" ng-model="project.projectPeriod.startDate" ng-date-picker name="project.projectPeriod.startDate" />
+                        <div class="calendar-container">
+                            <input class="short date" ng-model="project.projectPeriod.startDate" ng-date-picker name="project.projectPeriod.startDate" />
+                        </div>
                         -
-                        <input  class="short date" ng-model="project.projectPeriod.endDate" ng-date-picker name="project.projectPeriod.endDate"/>
+                        <div class="calendar-container">
+                            <input  class="short date" ng-model="project.projectPeriod.endDate" ng-date-picker name="project.projectPeriod.endDate"/>
+                        </div>
                     </td>
                 </tr>
                 <tr>
                     <th>订单预期：</th>
-                    <td><input class="month" ng-model="project.estimateContractDate" ng-date-picker name="project.estimateContractDate"/></td>
+                    <td>
+                        <div class="calendar-container">
+                            <input class="month" ng-model="project.estimateContractDate" ng-date-picker name="project.estimateContractDate"/>
+                        </div>
+                    </td>
                     <th>销售额(RMB)：</th>
                     <td><input ng-model="project.saleAmountCN" type="number" name="project.saleAmountCN" double /></td>
                 </tr>

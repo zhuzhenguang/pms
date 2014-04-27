@@ -53,7 +53,7 @@ pmsService.factory('Modal', function () {
             this.modal = this.modal || angular.element('.pop_new');
             this.modal.dialog({
                 modal: true,
-                width: 670,
+                width: 730,
                 /*height: 480,*/
                 autoOpen: false,
                 show: {

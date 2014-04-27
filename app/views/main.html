@@ -67,8 +67,10 @@
                     </td>
                     <th><label for="search_estimate_date">订单预期：</label></th>
                     <td>
-                        <input id="search_estimate_date" class="searchinput month"
-                               ng-model="searchCondition.estimateContractDate" ng-date-picker/>
+                        <div class="calendar-container">
+                            <input id="search_estimate_date" class="searchinput month"
+                                   ng-model="searchCondition.estimateContractDate" ng-date-picker/>
+                        </div>
                     </td>
                     <th>签合同是否：</th>
                     <td>
@@ -148,8 +150,8 @@
                     <col width="104px"/>
                     <col width="126px"/>
                     <col width="214px"/>
-                    <col width="110px"/>
-                    <col width="176px"/>
+                    <col width="108px"/>
+                    <col width="210px"/>
                     <col width="91px"/>
                     <col width="94px"/>
                     <col width="94px"/>
@@ -244,37 +246,42 @@
 
                     <!--上年完成日期-->
                     <td class="green">
-                        <input class="date"
-                               ng-date-picker
-                               ng-show="{{project.editable}}"
-                               ng-model="project.previousFinishDate"
-                               ng-change="record($event, $index, 'previousFinishDate')">
+                        <div class="calendar-container" ng-show="{{project.editable}}">
+                            <input class="date"
+                                   ng-date-picker
+                                   ng-model="project.previousFinishDate"
+                                   ng-change="record($event, $index, 'previousFinishDate')">
+                        </div>
                         <span ng-show="{{!project.editable}}">{{project.previousFinishDate}}</span>
                     </td>
 
                     <!--日期区间-->
                     <td class="green">
-                        <input class="period-input date"
-                               ng-model="project.projectPeriod.startDate"
-                               ng-date-picker
-                               ng-show="{{project.editable}}"
-                               ng-change="record($event, $index, 'projectPeriod.startDate')">
+                        <div class="period-calendar-container" ng-show="{{project.editable}}">
+                            <input class="period-input date"
+                                   ng-model="project.projectPeriod.startDate"
+                                   ng-date-picker
+                                   ng-change="record($event, $index, 'projectPeriod.startDate')">
+                        </div>
                         <span ng-show="{{!project.editable}}">{{project.projectPeriod.startDate}}</span>
                         -
-                        <input class="period-input date"
-                               ng-model="project.projectPeriod.endDate"
-                               ng-date-picker ng-show="{{project.editable}}"
-                               ng-change="record($event, $index, 'projectPeriod.endDate')">
+                        <div class="period-calendar-container" ng-show="{{project.editable}}">
+                            <input class="period-input date"
+                                   ng-model="project.projectPeriod.endDate"
+                                   ng-date-picker
+                                   ng-change="record($event, $index, 'projectPeriod.endDate')">
+                         </div>
                         <span ng-show="{{!project.editable}}">{{project.projectPeriod.endDate}}</span>
                     </td>
 
                     <!--预计订单日期-->
                     <td class="green">
-                        <input class="month"
-                               ng-model="project.estimateContractDate"
-                               ng-date-picker
-                               ng-show="{{project.editable}}"
-                               ng-change="record($event, $index, 'estimateContractDate')">
+                        <div class="calendar-container" ng-show="{{project.editable}}">
+                            <input class="month"
+                                   ng-model="project.estimateContractDate"
+                                   ng-date-picker
+                                   ng-change="record($event, $index, 'estimateContractDate')">
+                        </div>
                         <span ng-show="{{!project.editable}}">{{project.estimateContractDate}}</span>
                     </td>
 

@@ -11,6 +11,13 @@ pmsDirective.directive('ngDatePicker', ['DateSelector', function (DateSelector) 
         } else if ($element.hasClass('month')) {
             DateSelector.configMonth($element);
         }
+        $element.css('text-align', 'left').css('padding-left', 8);
+        var icon = $('<div class="calendar-button"><a></a></div>');
+        icon.css('left', $element.width() - 10).css('top', $element.height() - 14);
+        icon.on('click', function() {
+            //$(this).prev
+        });
+        icon.insertAfter($element);
     }
 
     return {
