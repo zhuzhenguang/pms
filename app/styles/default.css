@@ -55,5 +55,5 @@ a.accessibility01:hover, a.accessibility01:focus, a.accessibility01:active{posit
 
 /* skip navi */
 .accessibility02 { position:absolute; top:0; display:block; left:0; width:199px; z-index:1}
-.accessibility02 a { display:block;  height:19px; text-indent:-5000px; overflow:hidden; background: url(/images/common/banner/accessibility02.png) no-repeat}
+.accessibility02 a { display:block;  height:19px; text-indent:-5000px; overflow:hidden; background: url(/backup/images/common/banner/accessibility02.png) no-repeat}
 

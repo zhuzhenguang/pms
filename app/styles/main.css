@@ -77,6 +77,7 @@ body {
 
 #contents .commonbtn {
     position: relative;
+    display: none;
 }
 
 #contents .commonbtn ul li {
@@ -98,8 +99,8 @@ body {
 #contents .commonbtn .left {
     float: left;
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
 }
 
 #contents .commonbtn .right {
@@ -193,8 +194,8 @@ body {
 
 #contents .page .nm {
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
 }
 
 #contents .page .nm dt {
@@ -204,20 +205,23 @@ body {
 
 #contents .page .nm dd {
     color: #499989;
+    float: left;
 }
 
 #contents .page .page_nm {
     width: 290px;
     margin: 0 auto;
+    text-align: center;
 }
 
 #contents .page .page_nm li {
-    float: left;
+    display: inline;
     margin-right: 15px;
 }
 
 #contents .page .page_nm li img {
     margin-top: 3px;
+    vertical-align: top;
 }
 
 #contents .page .page_nm li a {
@@ -241,6 +245,9 @@ body {
 .footer {
     height: 24px;
     background: #cdcdcd;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer .copyright {
@@ -292,6 +299,18 @@ input.searchinput {
     color: red;
 }
 
+input {
+    background: #ffffff
+}
+
+.selectbox-wrapper li {
+    color: #000000
+}
+
+.pop_new, .popup02_main, .loading {
+    display: none;
+}
+
 .calendar-button {
     background: url("../images/img_calender.gif") no-repeat;
     width: 16px;
@@ -312,3 +331,6 @@ input.searchinput {
     display: inline-table;
     width: 46%;
 }
+
+/*
+#userinfo {width: 0;}*/
