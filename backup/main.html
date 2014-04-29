@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>PMS项目管理系统</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="css/selectbox.css"/>
+</head>
+
+<body>
+<div class="header">
+    <h1><a href="#none"><img src="images/title_01.gif"/></a></h1>
+    <span class="nav"><a href="#none">项目管理</a></span>
+    <span class="out"><a href="#none"><img src="images/btn_out.gif"/></a></span>
+</div>
+<div id="contents">
+    <span class="slideup">
+        <a href="#none"><img src="images/btn_scroll.gif"/></a>
+    </span>
+
+    <div class="searchbox">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <colgroup>
+                <col width="4%"/>
+                <col width="10%"/>
+                <col width="6%"/>
+                <col width="10%"/>
+                <col width="4%"/>
+                <col width="10%"/>
+                <col width="6%"/>
+                <col width="10%"/>
+                <col width="6%"/>
+                <col width="10%"/>
+                <col width="6%"/>
+                <col width="10%"/>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>法人：</th>
+                    <td>
+                        <select name="Items" id="Items01">
+                            <option value="option1">option1</option>
+                            <option value="option2">option2</option>
+                            <option value="option3">option3</option>
+                            <option value="option4">option4</option>
+                        </select>
+                    </td>
+                    <th>销售代表：</th>
+                    <td>
+                        <select id="Items02">
+                            <option value="option1">option1</option>
+                            <option value="option2">option2</option>
+                            <option value="option3">option3</option>
+                            <option value="option4">option4</option>
+                        </select>
+                    </td>
+                    <th>分类：</th>
+                    <td>
+                        <select id="Items03">
+                            <option value="option1">option1</option>
+                            <option value="option2">option2</option>
+                            <option value="option3">option3</option>
+                            <option value="option4">option4</option>
+                        </select>
+                    </td>
+                    <th>项目编号：</th>
+                    <td>
+                        <select id="Items04">
+                            <option value="option1">option1</option>
+                            <option value="option2">option2</option>
+                            <option value="option3">option3</option>
+                            <option value="option4">option4</option>
+                        </select>
+                    </td>
+                    <th>订单预期：</th>
+                    <td>
+                        <select id="Items05">
+                            <option value="option1">option1</option>
+                            <option value="option2">option2</option>
+                            <option value="option3">option3</option>
+                            <option value="option4">option4</option>
+                        </select>
+                    </td>
+                    <th>签合同是否：</th>
+                    <td>
+                        <select id="Items06">
+                            <option value="option1">option1</option>
+                            <option value="option2">option2</option>
+                            <option value="option3">option3</option>
+                            <option value="option4">option4</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="searchbtn"><a href="#none"><img src="images/btn_search.gif" alt="搜索"/></a></div>
+    <div class="commonbtn">
+        <ul class="left">
+            <li><a href="#none"><img src="images/btn_plus.gif"/></a>
+                <div class="info"><img src="images/img_plus.png"/></div>
+            </li>
+            <li><a href="#none"><img src="images/btn_minus.gif"/></a>
+                <div class="info"><img src="images/img_minus.png"/></div>
+            </li>
+        </ul>
+        <ul class="right">
+            <li><a href="#none"><img src="images/btn_save.gif"/></a>
+                <div class="info"><img src="images/img_save.png"/></div>
+            </li>
+            <li><a href="#none"><img src="images/btn_refresh.gif"/></a>
+                <div class="info"><img src="images/img_refresh.png"/></div>
+            </li>
+            <li><a href="#none"><img src="images/btn_excel.gif"/></a>
+                <div class="info"><img src="images/img_excel.png"/></div>
+            </li>
+        </ul>
+    </div>
+    <div id="data">
+        <div class="tablemain">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <colgroup>
+                    <col width="27px"/>
+                    <col width="36px"/>
+                    <col width="85px"/>
+                    <col width="94px"/>
+                    <col width="62px"/>
+                    <col width="104px"/>
+                    <col width="126px"/>
+                    <col width="214px"/>
+                    <col width="110px"/>
+                    <col width="176px"/>
+                    <col width="91px"/>
+                    <col width="94px"/>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>No</th>
+                        <th>法人</th>
+                        <th>销售代表</th>
+                        <th>可能性</th>
+                        <th>类型</th>
+                        <th>项目编号</th>
+                        <th>项目名称</th>
+                        <th>维护结束日期</th>
+                        <th>PJT期间</th>
+                        <th>订单预期</th>
+                        <th>销售额</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>98</td>
+                        <td class="green">SDTJ</td>
+                        <td class="green">默认人</td>
+                        <td class="green">80%</td>
+                        <td>HW/SW</td>
+                        <td>CSIC-13000903</td>
+                        <td>SDTJ上海财险</td>
+                        <td>2012.12.31</td>
+                        <td>2013.01.01 - 2014.02.28</td>
+                        <td>2014.02</td>
+                        <td>￥250.00</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>98</td>
+                        <td class="green">SDTJ</td>
+                        <td class="green">默认人</td>
+                        <td class="green">80%</td>
+                        <td>HW/SW</td>
+                        <td>CSIC-13000903</td>
+                        <td>SDTJ上海财险</td>
+                        <td>2012.12.31</td>
+                        <td>2013.01.01 - 2014.02.28</td>
+                        <td>2014.02</td>
+                        <td>￥250.00</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>98</td>
+                        <td class="green">SDTJ</td>
+                        <td class="green">默认人</td>
+                        <td class="green">80%</td>
+                        <td>HW/SW</td>
+                        <td>CSIC-13000903</td>
+                        <td>SDTJ上海财险</td>
+                        <td>2012.12.31</td>
+                        <td>2013.01.01 - 2014.02.28</td>
+                        <td>2014.02</td>
+                        <td>￥250.00</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>98</td>
+                        <td class="green">SDTJ</td>
+                        <td class="green">默认人</td>
+                        <td class="green">80%</td>
+                        <td>HW/SW</td>
+                        <td>CSIC-13000903</td>
+                        <td>SDTJ上海财险</td>
+                        <td>2012.12.31</td>
+                        <td>2013.01.01 - 2014.02.28</td>
+                        <td>2014.02</td>
+                        <td>￥250.00</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>98</td>
+                        <td class="green">SDTJ</td>
+                        <td class="green">默认人</td>
+                        <td class="green">80%</td>
+                        <td>HW/SW</td>
+                        <td>CSIC-13000903</td>
+                        <td>SDTJ上海财险</td>
+                        <td>2012.12.31</td>
+                        <td>2013.01.01 - 2014.02.28</td>
+                        <td>2014.02</td>
+                        <td>￥250.00</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>98</td>
+                        <td class="green">SDTJ</td>
+                        <td class="green">默认人</td>
+                        <td class="green">80%</td>
+                        <td>HW/SW</td>
+                        <td>CSIC-13000903</td>
+                        <td>SDTJ上海财险</td>
+                        <td>2012.12.31</td>
+                        <td>2013.01.01 - 2014.02.28</td>
+                        <td>2014.02</td>
+                        <td>￥250.00</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>98</td>
+                        <td class="green">SDTJ</td>
+                        <td class="green">默认人</td>
+                        <td class="green">80%</td>
+                        <td>HW/SW</td>
+                        <td>CSIC-13000903</td>
+                        <td>SDTJ上海财险</td>
+                        <td>2012.12.31</td>
+                        <td>2013.01.01 - 2014.02.28</td>
+                        <td>2014.02</td>
+                        <td>￥250.00</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>98</td>
+                        <td class="green">SDTJ</td>
+                        <td class="green">默认人</td>
+                        <td class="green">80%</td>
+                        <td>HW/SW</td>
+                        <td>CSIC-13000903</td>
+                        <td>SDTJ上海财险</td>
+                        <td>2012.12.31</td>
+                        <td>2013.01.01 - 2014.02.28</td>
+                        <td>2014.02</td>
+                        <td>￥250.00</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>98</td>
+                        <td class="green">SDTJ</td>
+                        <td class="green">默认人</td>
+                        <td class="green">80%</td>
+                        <td>HW/SW</td>
+                        <td>CSIC-13000903</td>
+                        <td>SDTJ上海财险</td>
+                        <td>2012.12.31</td>
+                        <td>2013.01.01 - 2014.02.28</td>
+                        <td>2014.02</td>
+                        <td>￥250.00</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>98</td>
+                        <td class="green">SDTJ</td>
+                        <td class="green">默认人</td>
+                        <td class="green">80%</td>
+                        <td>HW/SW</td>
+                        <td>CSIC-13000903</td>
+                        <td>SDTJ上海财险</td>
+                        <td>2012.12.31</td>
+                        <td>2013.01.01 - 2014.02.28</td>
+                        <td>2014.02</td>
+                        <td>￥250.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="page">
+            <dl class="nm">
+                <dt>Total&nbsp;:&nbsp;</dt>
+                <dd>98</dd>
+            </dl>
+            <ul class="page_nm">
+                <li><a href="#none"><img src="images/btn_leftall.gif"/></a></li>
+                <li><a href="#none"><img src="images/btn_left.gif"/></a></li>
+                <li><a href="#none">1</a></li>
+                <li><a href="#none">2</a></li>
+                <li><a href="#none">3</a></li>
+                <li><a href="#none" class="on">4</a></li>
+                <li><a href="#none">5</a></li>
+                <li><a href="#none">6</a></li>
+                <li><a href="#none">7</a></li>
+                <li><a href="#none">8</a></li>
+                <li><a href="#none">9</a></li>
+                <li><a href="#none"><img src="images/btn_right.gif"/></a></li>
+                <li><a href="#none"><img src="images/btn_rightall.gif"/></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="copyright"><img src="images/img_copyright.gif"/></div>
+</div>
+
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="js/jquery.selectbox-0.5.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Items01').selectbox();
+        $('#Items02').selectbox();
+        $('#Items03').selectbox();
+        $('#Items04').selectbox();
+        $('#Items05').selectbox();
+        $('#Items06').selectbox();
+        adjust();
+    });
+
+    $(window).resize(function() {
+        adjust();
+    });
+    function adjust() {
+        var wh = $(document).height();
+        $('#contents').height(wh - 66 - 25);
+        $('#data').height(wh - 66 - 25 - 176);
+    }
+</script>
+</body>
+</html>

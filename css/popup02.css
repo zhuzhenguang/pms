@@ -1,7 +1,0 @@
-@charset "utf-8";
-/* CSS Document */
-
-.popup02_main { width:503px; height:190px; background:#f3f4f4; }
-.popup02_main .info { border-top:3px solid #bed194; height:129px; border-bottom:3px solid #bed194; background:#fff url(../images/bg_alert.gif) 50px center no-repeat; position:relative; margin-bottom:10px;  }
-.popup02_main .info p { color:#898989; font-size:20px; font-weight:bold; position:absolute; top:52px; left:115px; }
-.popup02_main .btn { width:162px; margin:10px auto 0 auto; }
