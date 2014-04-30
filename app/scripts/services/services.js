@@ -166,7 +166,7 @@ pmsService.factory('Modal', function () {
 });
 
 pmsService.factory('Projects', ['$resource', function ($resource) {
-    return $resource('scripts/projects/query_results.json:ids', {}, {
+    return $resource('api/projects:ids', {}, {
         query: {method: 'POST', isArray: false},
         update: {method: 'PUT'},
         remove: {method: 'DELETE'}
@@ -174,7 +174,7 @@ pmsService.factory('Projects', ['$resource', function ($resource) {
 }]);
 
 pmsService.factory('Project', ['$resource', function ($resource) {
-    return $resource('views/project', {}, {
+    return $resource('api/project', {}, {
         save: {method: 'POST'}
     });
 }]);

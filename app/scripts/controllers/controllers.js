@@ -55,7 +55,7 @@ pmsController.controller('MainCtrl', ['$scope', function ($scope) {
         //window.close();
     };
 
-    //mysingle();
+    mysingle();
 }]);
 
 /**
@@ -250,7 +250,7 @@ pmsController.controller('ProjectCtrl', ['$scope', 'Projects', 'Modal', 'Propert
 pmsController.constant('EXCEL_PATH', {
     "none": "#",
     "correct": function (s) {
-        return "views/excel?corporation="           + (s.corporation || '') +
+        return "api/projects/excel?corporation="           + (s.corporation || '') +
                            "&salesRepresentativeId=" + (s.salesRepresentativeId || '') +
                            "&projectTypeId="         + (s.projectTypeId || '') +
                            "&projectNo="             + (s.projectNo || '') +
