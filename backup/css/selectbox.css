@@ -1,0 +1,68 @@
+/* Drop down styles Download by http://www.codefans.net*/
+div.selectbox-wrapper {
+  position:absolute;
+  background-color:white;
+  margin:0px;
+  margin-top:-10px;
+  padding:0px;
+  text-align:left;
+  max-height:200px;
+  overflow:auto;
+  width:10.3%!important;
+  
+}
+
+/*Drop down list styles*/
+div.selectbox-wrapper ul {
+  list-style-type:none;
+  margin:0px;
+  padding:0px;
+  border:1px solid #acacac;
+  background:fff;
+  
+  
+
+}
+/* Selected item in dropdown list*/
+div.selectbox-wrapper ul li.selected { 
+  background-color: #fff;
+}
+
+/* Hover state for dropdown list */
+div.selectbox-wrapper ul li.current { 
+  background-color: #e45e45;
+  color:#fff; 
+}
+
+/* Drop down list items style*/
+div.selectbox-wrapper ul li {
+  list-style-type:none;
+  display:block;
+  margin:0;
+  padding:2px;
+  cursor:pointer;
+  overflow:hidden;
+
+}
+
+/* Look and feel of select box */
+.selectbox 
+{
+  margin: 0px 5px 10px 0px;
+  padding-left:2px;
+  font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size:1em;/* Resize Font*/
+  width : 95%!important; /* Resize Width */
+  display : block;
+  text-align:left; 
+  background: url('bg_select.gif') right;
+  cursor: pointer;
+   color:#333;
+  
+}
+
+input.selectbox {  border-top:1px solid #b3b3b3;
+  border-left:1px solid #b3b3b3;
+  border-bottom:1px solid #e8e8e8;
+  border-right:1px solid #e8e8e8; width:95%; background:#fff url(../images/bg_select.gif) 95% center no-repeat; height:18px; margin-top:5px;   }
+

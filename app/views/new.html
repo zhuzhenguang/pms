@@ -8,7 +8,7 @@
             <table cellpadding="0" cellspacing="0" border="0">
                 <colgroup>
                     <col width="150px" />
-                    <col width="190px" />
+                    <col width="190px;" />
                     <col width="150px" />
                     <col width="240px" />
                 </colgroup>
@@ -50,7 +50,7 @@
                         </div>
                         -
                         <div class="calendar-container">
-                            <input  class="short date" ng-model="project.projectPeriod.endDate" ng-date-picker name="project.projectPeriod.endDate"/>
+                            <input class="short date" ng-model="project.projectPeriod.endDate" ng-date-picker name="project.projectPeriod.endDate"/>
                         </div>
                     </td>
                 </tr>
@@ -69,8 +69,8 @@
                     <td><input ng-model="project.saleAmountUS" type="number" name="project.saleAmountUS" double /></td>
                     <th><span class="required">*</span>SDSK关联：</th>
                     <td>
-                        <a href="#none" class="radio radio_{{project.relateSDSK}}" ng-click="radio('relateSDSK', $event)">是</a>
-                        <a href="#none" class="radio radio_{{!project.relateSDSK}}" ng-click="radio('relateSDSK', $event)">否</a>
+                        <a href="javascript:void(0)" class="radio radio_{{project.relateSDSK}}" ng-click="radio('relateSDSK', $event)">是</a>
+                        <a href="javascript:void(0)" class="radio radio_{{!project.relateSDSK}}" ng-click="radio('relateSDSK', $event)">否</a>
                     </td>
                 </tr>
                 <tr>
@@ -88,25 +88,25 @@
                 <tr>
                     <th><span class="required">*</span>系统录入是否：</th>
                     <td>
-                        <a href="#none" class="radio radio_{{project.inputSAP}}" ng-click="radio('inputSAP', $event)">是</a>
-                        <a href="#none" class="radio radio_{{!project.inputSAP}}" ng-click="radio('inputSAP', $event)">否</a>
+                        <a href="javascript:void(0)" class="radio radio_{{project.inputSAP}}" ng-click="radio('inputSAP', $event)">是</a>
+                        <a href="javascript:void(0)" class="radio radio_{{!project.inputSAP}}" ng-click="radio('inputSAP', $event)">否</a>
                     </td>
                     <th><span class="required">*</span>签合同是否：</th>
                     <td>
-                        <a href="#none" class="radio radio_{{project.contract}}" ng-click="radio('contract', $event)">是</a>
-                        <a href="#none" class="radio radio_{{!project.contract}}" ng-click="radio('contract', $event)">否</a>
+                        <a href="javascript:void(0)" class="radio radio_{{project.contract}}" ng-click="radio('contract', $event)">是</a>
+                        <a href="javascript:void(0)" class="radio radio_{{!project.contract}}" ng-click="radio('contract', $event)">否</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </form>
         <div class="btn">
-            <a href="#none" style="margin-right:10px;" ng-click="add()">
+            <a href="javascript:void(0)" style="margin-right:10px;" ng-click="add()">
                 <img src="images/btn_save02.gif" onmouseover="this.src='images/btn_save02_hover.gif'"
                      onmousedown="this.src='images/btn_save02_click.gif'"
                      onmouseout="this.src='images/btn_save02.gif'" />
             </a>
-            <a href="#none" ng-click="close()">
+            <a href="javascript:void(0)" ng-click="close()">
                 <img src="images/btn_close.gif"  onmouseover="this.src='images/btn_close_hover.gif'"
                      onmousedown="this.src='images/btn_close_click.gif'"
                      onmouseout="this.src='images/btn_close.gif'"/>

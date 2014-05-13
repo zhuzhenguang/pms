@@ -3,28 +3,33 @@
 <head xmlns="http://www.w3.org/1999/xhtml">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>PMS项目管理系统</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="scripts/vendor/jquery/ui/jquery-ui-1.10.4.min.css"/>
     <link rel="stylesheet" type="text/css" href="styles/styles.css"/>
     <link rel="stylesheet" type="text/css" href="styles/selectbox.css"/>
     <link rel="stylesheet" type="text/css" href="styles/popup.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/popup02.css"/>
 </head>
-<body>
+<body ng-controller="AppCtrl">
     <div ng-include="'views/main.html'"></div>
 
     <div ng-include="'views/new.html'"></div>
 
-    <script src="scripts/vendor/jquery/jquery.min.js"></script>
-    <script src="scripts/vendor/jquery/jquery.selectbox-0.5.js"></script>
-    <script src="scripts/vendor/jquery/ui/jquery-ui-1.10.4.min.js"></script>
-    <script src="scripts/vendor/jquery/ui/jquery-ui-datepicker-zh-CN.js"></script>
-    <script src="scripts/vendor/angular/angular.min.js"></script>
-    <script src="scripts/vendor/angular/angular-resource.min.js"></script>
-    <script src="scripts/vendor/angular/angular-route.min.js"></script>
-    <script src="scripts/vendor/angular/angular-sanitize.min.js"></script>
-    <script src="scripts/vendor/angular/angular-loader.min.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/controllers.js"></script>
-    <script src="scripts/services/services.js"></script>
-    <script src="scripts/directives/directive.js"></script>
+    <div ng-include="'views/delete.html'"></div>
+
+    <script type="text/javascript" src="scripts/vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor/jquery/jquery.selectbox-0.5.js"></script>
+    <script type="text/javascript" src="scripts/vendor/jquery/jquery.alphanumeric.js"></script>
+    <script type="text/javascript" src="scripts/vendor/jquery/ui/jquery-ui-1.10.4.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor/jquery/ui/jquery-ui-datepicker-zh-CN.js"></script>
+    <script type="text/javascript" src="scripts/vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor/angular/angular-resource.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor/angular/angular-route.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor/angular/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor/angular/angular-loader.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/controllers/controllers.js"></script>
+    <script type="text/javascript" src="scripts/services/services.js"></script>
+    <script type="text/javascript" src="scripts/directives/directive.js"></script>
 </body>
 </html>

@@ -24,7 +24,7 @@ pmsService.factory('Resize', function () {
             adjustHeight();
         },
 
-        top: function() {
+        top: function () {
             angular.element(window).unbind('resize').resize(function () {
                 topHeight();
             });
@@ -48,6 +48,11 @@ pmsService.factory('DateSelector', function () {
 });
 
 pmsService.factory('Modal', function () {
+    /**
+     * 新建项目的Modal
+     *
+     * @type {{register: register, close: close, open: open}}
+     */
     var projectNewModel = {
         register: function () {
             this.modal = this.modal || angular.element('.pop_new');
@@ -76,22 +81,100 @@ pmsService.factory('Modal', function () {
         }
     };
 
+    /**
+     * 删除提示的Modal
+     *
+     * @type {{register: register, close: close, open: open, confirm: confirm}}
+     */
+    var removeWarning = {
+        register: function () {
+            this.modal = this.modal || angular.element('.popup02_main');
+            this.modal.dialog({
+                modal: true,
+                width: 503,
+                /*height: 480,*/
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 500
+                },
+                hide: {
+                    effect: "fade",
+                    duration: 500
+                }
+            });
+        },
+
+        close: function () {
+            this.modal.dialog('close');
+        },
+
+        open: function (done) {
+            if (done) {
+                this.done = done;
+            }
+            this.modal.dialog('open');
+        },
+
+        confirm: function () {
+            this.close();
+            if (this.done && angular.isFunction(this.done)) {
+                this.done();
+            }
+        }
+    };
+
+    /**
+     * loading的Modal
+     *
+     * @type {{register: register, close: close, open: open}}
+     */
+    var loading = {
+        register: function () {
+            this.modal = this.modal || angular.element('#loading');
+            this.modal.dialog({
+                modal: true,
+                width: 300,
+                height: 190,
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 100
+                },
+                hide: {
+                    effect: "fade",
+                    duration: 100
+                }
+            });
+        },
+
+        close: function () {
+            this.modal.dialog('close');
+        },
+
+        open: function () {
+            this.modal.dialog('open');
+        }
+    };
+
     return {
-        projectNew: projectNewModel
+        projectNew: projectNewModel,
+        removeWarning: removeWarning,
+        loading: loading
     };
 
 });
 
 pmsService.factory('Projects', ['$resource', function ($resource) {
-    return $resource('scripts/projects/query_results.json', {}, {
-        query: {method: 'GET', isArray: false},
+    return $resource('api/projects:ids', {}, {
+        query: {method: 'POST', isArray: false},
         update: {method: 'PUT'},
         remove: {method: 'DELETE'}
     });
 }]);
 
 pmsService.factory('Project', ['$resource', function ($resource) {
-    return $resource('scripts/project', {}, {
+    return $resource('api/project', {}, {
         save: {method: 'POST'}
     });
 }]);

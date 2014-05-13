@@ -1,0 +1,59 @@
+html { font-size: 12px}
+body { font-size: 0.75em}
+label { cursor:pointer}
+a:link, a:visited { text-decoration:none; }
+
+a:hover, a:focus, a:active { text-decoration:none;}
+a { outline:none; zoom:1; }
+a, abbr, acronym, address, applet, article, aside, audio,
+b, blockquote, big, body,
+center, canvas, caption, cite, code, command,
+datalist, dd, del, details, dfn, dl, div, dt, 
+em, embed,
+fieldset, figcaption, figure, font, footer, form, 
+h1, h2, h3, h4, h5, h6, header, hgroup, html,
+i, iframe, img, ins,
+kbd, 
+keygen,
+label, legend, li, 
+meter,
+nav, menu,
+object, ol, output,
+p, pre, progress,
+q, 
+s, samp, section, small, span, source, strike, strong, sub, sup,
+table, tbody, tfoot, thead, th, tr, tdvideo, tt,
+u, ul, 
+var { margin:0; padding:0}
+
+h1, h2, h3, h4, h5, h6, th, td, table, input, button, select, textarea, sub{ font-size:1em}
+body, input, button, select, textarea, sub{ font-family:"微软雅黑";}
+em, cite, address, optgroup { font-style:normal}
+kbd, samp, code { font-family:monospace}
+
+img, input, button, select, textarea { vertical-align:middle; }
+ul, ol { list-style:none}
+img, fieldset { border:0}
+abbr, acronym { cursor:help; border-bottom:1px dotted black}
+table {	width:100%; border-spacing:0}/* border-collapse: collapse; ff에서 border="0" 인 경우 문제 발생 */
+
+legend, hr { overflow:hidden; position:absolute; top:0; left:0}
+legend, hr, caption { visibility:hidden; font-size:0; width:0; height:0; line-height:0}
+
+/* Html5 Getting the new tags to behave */
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video{ display: block}
+mark, rp, rt, ruby, summary, time{ display: inline }
+input { outline:none; resize:none; }
+/* clear float */
+.group:after{ content:"."; display:block; height:0; clear:both; visibility:hidden}
+.group{ display:inline-block}
+.group{ display:block}
+
+
+a.accessibility01{position:absolute; display:block; width:100%; left:0; text-align:center; top:-10000px; z-index:500; font-size:1.3em}
+a.accessibility01:hover, a.accessibility01:focus, a.accessibility01:active{position: absolute; top: 0; padding: 15px 0; font-weight:bold; color:#fff; background:#1d60a7; z-index:500}
+
+/* skip navi */
+.accessibility02 { position:absolute; top:0; display:block; left:0; width:199px; z-index:1}
+.accessibility02 a { display:block;  height:19px; text-indent:-5000px; overflow:hidden; background: url(/backup/images/common/banner/accessibility02.png) no-repeat}
+

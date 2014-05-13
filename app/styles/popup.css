@@ -4,7 +4,12 @@ div.pop_new {
     width: 730px; /*height:480px;*/
     font-size: 12px;
     color: #363636;
-    display: none;
+}
+
+div#loading {
+    width: 300px;
+    height: 180px;
+    background: url("../images/Loading_Icon.gif") no-repeat
 }
 
 .top {
@@ -31,10 +36,7 @@ div.pop_new {
 .main {
     border-top: 1px solid #acacae;
     background: #f3f4f4;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 15px;
+    padding: 20px 20px 15px;
 }
 
 .main table {
@@ -77,7 +79,7 @@ div.pop_new {
     border: 1px solid #b3b3b3;
     border-right-color: #e8e8e8;
     border-bottom-color: #e8e8e8;
-    width: 158px;
+    width: 168px;
     height: 18px;
 }
 
@@ -86,7 +88,7 @@ div.pop_new {
 }
 
 .main .short {
-    width: 86px;
+    width: 84px;
 }
 
 .main .btn {
